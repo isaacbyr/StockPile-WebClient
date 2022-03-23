@@ -1,0 +1,25 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.banner {
+  // padding: 0 16px;
+  color: $Primary-Dark-Font;
+  &__text-wrapper {
+    padding: 0 1rem;
+    @include display-flex(column, center, center);
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__subheader-wrapper {
+    @include display-flex(row, flex-start, center);
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-size: cover;
+  }
+}

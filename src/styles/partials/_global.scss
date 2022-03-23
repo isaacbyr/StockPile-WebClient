@@ -1,0 +1,16 @@
+@use './mixins' as *;
+@use './variables' as *;
+@use './typography' as *;
+
+* {
+  box-sizing: border-box;
+  //border: 1px dashed red;
+}
+
+h2 {
+  margin: 0.5rem 0.5rem;
+}
+
+p {
+  margin: 0.4rem 0.4rem;
+}

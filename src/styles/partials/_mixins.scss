@@ -1,5 +1,11 @@
 @use './variables' as *;
 
+@mixin semi-tablet {
+  @media (min-width: $semi-tablet-width) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: $desktop-width) {
     @content;
