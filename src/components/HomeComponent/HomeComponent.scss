@@ -1,0 +1,144 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav {
+  color: $Primary-Light;
+  border-bottom: 2px solid $Primary-Light;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0px 16px;
+  z-index: 1000;
+  @include display-flex(row, space-between, center);
+
+  @include tablet {
+    @include display-flex(row, space-between, center);
+    padding: 0px 36px;
+  }
+
+  &__header {
+    margin: 0.5rem;
+    color: $Primary-Light;
+  }
+
+  &__tablet-wrapper {
+    @include display-flex(row, space-around, center);
+    width: 100%;
+    @include tablet {
+      @include display-flex(row, flex-start, center);
+    }
+  }
+
+  &__link {
+    list-style: none;
+    text-decoration: none;
+  }
+
+  &__link--text {
+    margin: 0.5rem;
+
+    color: $Primary-Light;
+
+    &:hover {
+      color: #4061ba;
+    }
+  }
+}
+
+.banner {
+  color: $Primary-Light;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  @include display-flex(row, flex-start, center);
+  z-index: 2;
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+  }
+
+  &__text-wrapper {
+    padding: 0 1rem;
+    margin: 0 0rem 0rem 0rem;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    @include display-flex(column, center, flex-start);
+
+    @include tablet {
+      padding: 0 36px;
+    }
+  }
+
+  &__header {
+    font-size: 3rem;
+    text-align: left;
+    color: $Primary-Light;
+    margin: 0.5rem 0.5rem 0.2rem 0.5rem;
+
+    @include tablet {
+      font-size: 3.5rem;
+      line-height: 3.8rem;
+    }
+  }
+
+  &__tagline {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+
+    @include tablet {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__subheader-wrapper {
+    @include display-flex(row, flex-start, center);
+
+    @include tablet {
+      margin: 0 2rem;
+    }
+  }
+
+  &__text {
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    margin: 0.5rem;
+    background-color: #4061ba;
+    align-self: center;
+    color: $Primary-Light;
+    border-radius: 4px;
+    padding: 5px 12px;
+
+    @include tablet {
+      font-size: 1rem;
+      padding: 5px 15px;
+    }
+
+    &:hover {
+      //background-color: #1b263b;
+    }
+  }
+}

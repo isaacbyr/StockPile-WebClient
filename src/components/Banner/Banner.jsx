@@ -20,6 +20,7 @@ const Banner = () => {
               <p>Trade like the pros</p>
             </div>
           </div>
+          <button className='banner__button'>Sign Up Now!</button>
         </div>
 
         <div className='banner__img-wrapper'>

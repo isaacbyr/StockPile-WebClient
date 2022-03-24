@@ -1,0 +1,36 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.info {
+  // padding: 0 16px;
+  color: $Primary-Dark-Font;
+  &__text-wrapper {
+    padding: 0 1rem;
+    margin: 0 0 1rem 0;
+
+    @include display-flex(column, center, center);
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__subheader-wrapper {
+    @include display-flex(row, flex-start, center);
+  }
+  &__img--overlay {
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-size: cover;
+  }
+
+  &__button {
+    background-color: #5bacc3;
+    color: $Primary-Light;
+    border-radius: 4px;
+    padding: 5px 12px;
+  }
+}
