@@ -1,0 +1,34 @@
+@use './variables' as *;
+
+@mixin semi-tablet {
+  @media (min-width: $semi-tablet-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin display-flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin max-width {
+  @include desktop {
+    max-width: $max-content-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

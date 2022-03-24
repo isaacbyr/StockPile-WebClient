@@ -1,0 +1,62 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.review {
+  padding: 0 16px;
+  margin: 16px 0;
+
+  @include tablet {
+    padding: 0 48px;
+    margin: 36px 0;
+  }
+
+  &-container {
+    @include max-width;
+    @include tablet {
+      @include display-flex(row, space-between, center);
+    }
+  }
+
+  &__header {
+    margin: 1rem;
+    color: $Primary-Dark-Font;
+    text-align: center;
+  }
+
+  &__item {
+    box-shadow: 2px 4px 7px rgba(19, 24, 44, 0.2);
+    border-radius: 4px;
+    margin: 0.8rem;
+
+    @include tablet {
+      width: 30%;
+    }
+  }
+
+  &__item--header {
+    padding: 0.5rem;
+    @include display-flex(row, flex-start, center);
+  }
+
+  &__avatar {
+    object-fit: cover;
+    margin: 0 0.6rem 0 0;
+    border-radius: 50%;
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  &__dark--text {
+    color: $Primary-Dark-Font;
+  }
+
+  &__username {
+    color: #4061ba;
+  }
+
+  &__text {
+    padding: 0 0.5rem 0.8rem 0.8rem;
+    margin: 0;
+    color: $Primary-Dark-Font;
+  }
+}

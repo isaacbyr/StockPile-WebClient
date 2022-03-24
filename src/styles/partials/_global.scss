@@ -1,0 +1,29 @@
+@use './mixins' as *;
+@use './variables' as *;
+@use './typography' as *;
+
+* {
+  box-sizing: border-box;
+  //border: 1px dashed red;
+}
+
+h2 {
+  margin: 0.5rem;
+  font-size: 24px;
+  line-height: 32px;
+  @include tablet {
+    font-size: 33px;
+    line-height: 44px;
+  }
+}
+
+p {
+  margin: 0.4rem 0.4rem;
+  font-size: 13px;
+  line-height: 18px;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
