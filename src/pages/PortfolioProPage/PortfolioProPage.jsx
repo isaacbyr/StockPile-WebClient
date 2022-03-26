@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import MainStockChart from '../../components/MainStockChart/MainStockChart'
 import Navbar from '../../components/Navbar/Navbar'
+import PositionPanel from '../../components/PosititonPanel/PositionPanel'
+import CompanyOverview from '../../components/CompanyOverview/CompanyOverview'
 import Footer from '../../components/Footer/Footer'
 import './PortfolioProPage.scss'
 
@@ -46,7 +48,7 @@ class PortfolioProPage extends Component {
                     <div className='chart-header__search-container'>
                       <label
                         className='chart-header__search--label'
-                        for='range'
+                        htmlFor='range'
                       >
                         Range
                       </label>
@@ -91,7 +93,14 @@ class PortfolioProPage extends Component {
               </div>
               <MainStockChart />
             </div>
-            <div className='portfoliopro__info-wrapper'></div>
+            <div className='portfoliopro__info-wrapper'>
+              <div className='portfoliopro__position'>
+                <PositionPanel />
+              </div>
+              <div className='portfoliopro__overview'>
+                <CompanyOverview />
+              </div>
+            </div>
           </div>
         </section>
         <Footer />

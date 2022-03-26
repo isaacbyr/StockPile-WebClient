@@ -9,15 +9,47 @@
     padding: 0 36px;
   }
 
+  &__header {
+    color: $Primary-Dark-Font;
+    font-size: 3rem;
+    margin: 2rem;
+  }
+
   &-container {
     width: 100%;
-    @include tablet {
-      @include display-flex(row, space-between, center);
+    @include desktop {
+      @include display-flex(row, space-between, flex-start);
     }
   }
 
   &__chart-wrapper {
     width: 100%;
+    padding: 1rem;
+    border-radius: 4px;
     box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
+    margin: 0 0 1rem 0;
+
+    @include tablet {
+      margin: 0 0 2.25rem 0;
+    }
+  }
+
+  &__info-wrapper {
+    @include tablet {
+      @include display-flex(row, space-between, flex-start);
+    }
+  }
+
+  &__position {
+    width: 100%;
+    @include tablet {
+      width: 48%;
+    }
+  }
+  &__overview {
+    width: 100%;
+    @include tablet {
+      width: 48%;
+    }
   }
 }

@@ -1,0 +1,21 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.overview {
+  color: $Primary-Dark-Font;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
+  margin: 0 0 2rem 0;
+  @include display-flex(column, center, center);
+  &__header {
+    text-align: center;
+  }
+  &__table {
+    width: 80%;
+
+    @include tablet {
+      width: 90%;
+    }
+  }
+}

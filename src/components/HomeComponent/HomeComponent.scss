@@ -12,17 +12,18 @@
 .nav {
   color: $Primary-Light;
   border-bottom: 2px solid $Primary-Light;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0px 16px;
-  z-index: 1000;
-  @include display-flex(row, space-between, center);
+  background-color: #333333;
 
-  @include tablet {
+  &-wrapper {
+    @include max-width;
+    width: 100%;
+    padding: 0px 16px;
     @include display-flex(row, space-between, center);
-    padding: 0px 36px;
+
+    @include tablet {
+      @include display-flex(row, space-between, center);
+      padding: 0px 36px;
+    }
   }
 
   &__header {
@@ -54,33 +55,21 @@
   }
 }
 
-.banner {
+.home-banner {
+  background-image: url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
   color: $Primary-Light;
-  position: absolute;
-  right: 0;
   width: 100%;
-  min-height: 100vh;
-  padding: 100px;
-  @include display-flex(row, flex-start, center);
-  z-index: 2;
-
-  &__img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: none;
-  }
+  height: 100vh;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  @include display-flex(row, flex-start, flex-start);
 
   &__text-wrapper {
+    @include max-width;
+    width: 100%;
     padding: 0 1rem;
-    margin: 0 0rem 0rem 0rem;
-    position: absolute;
-    left: 0;
-    z-index: 1;
-    @include display-flex(column, center, flex-start);
+    margin: 8rem 0rem 0rem 0rem;
 
     @include tablet {
       padding: 0 36px;
@@ -91,7 +80,7 @@
     font-size: 3rem;
     text-align: left;
     color: $Primary-Light;
-    margin: 0.5rem 0.5rem 0.2rem 0.5rem;
+    margin: 1rem 0;
 
     @include tablet {
       font-size: 3.5rem;
@@ -101,7 +90,7 @@
 
   &__tagline {
     font-size: 1.5rem;
-    margin: 0 0.5rem;
+    margin: 1rem 0;
 
     @include tablet {
       font-size: 1.8rem;
@@ -127,7 +116,6 @@
     border: none;
     margin: 0.5rem;
     background-color: #4061ba;
-    align-self: center;
     color: $Primary-Light;
     border-radius: 4px;
     padding: 5px 12px;
