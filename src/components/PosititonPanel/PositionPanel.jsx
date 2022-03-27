@@ -7,7 +7,7 @@ class PositionPanel extends Component {
   state = {
     accountBalance: 0,
     ticker: '',
-    currentPositonShares: 0,
+    currentPositionShares: 0,
     newPositionShares: 0,
     averagePrice: 0,
     profitLoss: 0,
@@ -22,6 +22,7 @@ class PositionPanel extends Component {
   }
 
   loadAccountBalance = () => {
+    console.log('here')
     var options = {
       method: 'GET',
       url: 'http://localhost:44317/api/useraccount',
@@ -37,6 +38,8 @@ class PositionPanel extends Component {
   }
 
   loadPortfolioStock = () => {
+    console.log('here')
+
     axios
       .get(`http://localhost:44317/api/portfolio/${this.props.ticker}`)
       .then((response) => {
@@ -45,7 +48,7 @@ class PositionPanel extends Component {
         this.setState({
           averagePrice: response.data.AveragePrice,
           ticker: response.data.Ticker,
-          currentPositonShares: response.data.Shares,
+          currentPositionShares: response.data.Shares,
           profitLoss: pl.toFixed(2),
         })
       })
@@ -71,9 +74,78 @@ class PositionPanel extends Component {
   }
 
   handleBuy = () => {
-    // update account balance
+    let data = {
+      Amount: this.state.cashAmount,
+      UserId: '',
+    }
+
+    axios
+      .put(
+        'http://localhost:44317/api/useraccount/updatebalance/portfolio',
+        data
+      )
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
     //update transaction table
-    // update prtoflio table
+    var transaction = {
+      Ticker: this.state.ticker,
+      Buy: true,
+      Price: this.state.price,
+      Sell: false,
+      Shares: this.state.newPositionShares,
+      Date: new Date(),
+    }
+
+    axios
+      .post('http://localhost:44317/api/transaction', transaction)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    // update portfolio table
+    var stock = {
+      Ticker: this.state.ticker,
+      Price: this.state.price,
+      Shares: this.state.newPositionShares,
+    }
+
+    if (this.state.currentPositionShares == 0) {
+      axios
+        .post('http://localhost:44317/api/portfolio', stock)
+        .then((response) => {
+          console.log(response)
+
+          // reload account balance
+          this.loadAccountBalance()
+          //load updated positonn
+          this.loadPortfolioStock()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    } else {
+      axios
+        .put('http://localhost:44317/api/portfolio/buy', stock)
+        .then((response) => {
+          console.log(response)
+
+          // reload account balance
+          this.loadAccountBalance()
+          //load updated positonn
+          this.loadPortfolioStock()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -108,7 +180,7 @@ class PositionPanel extends Component {
             <tbody>
               <tr>
                 <td>{this.state.ticker}</td>
-                <td>{this.state.currentPositonShares}</td>
+                <td>{this.state.currentPositionShares}</td>
                 <td>{this.state.averagePrice}</td>
                 <td>{this.state.profitLoss}</td>
               </tr>
