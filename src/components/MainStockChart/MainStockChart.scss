@@ -3,11 +3,19 @@
 
 .chart-header {
   color: $Primary-Dark-Font;
+  @include desktop {
+    @include display-flex(row, space-between, center);
+    border-bottom: 2px solid $Primary-Dark-Font;
+    padding: 0 0 0.5rem 0;
+  }
 
   &-wrapper-1 {
     @include display-flex(row, flex-start, center);
     @include tablet {
       @include display-flex(row, flex-start, center);
+    }
+    @include desktop {
+      width: 20%;
     }
   }
   &-wrapper-2 {
@@ -15,14 +23,26 @@
     @include tablet {
       @include display-flex(column, space-around, center);
     }
+    @include desktop {
+      width: 80%;
+      @include display-flex(row, space-between, center);
+      margin: 0;
+    }
   }
 
   &__stock {
     font-size: 18px;
+    @include tablet {
+      font-size: 32px;
+    }
   }
   &__price {
     font-size: 18px;
-    margin: 0 0 0 0.8rem;
+    margin: 0 0 0 1rem;
+    @include tablet {
+      font-size: 30px;
+      margin: 0.2rem 0 0 1.5rem;
+    }
   }
 
   &__search {
@@ -42,6 +62,7 @@
     @include tablet {
       width: 32%;
       margin: 0;
+      height: 40px;
     }
   }
   &__search-container {
@@ -63,9 +84,13 @@
   &__select {
     width: 85%;
     height: 35px;
+    border-radius: 4px;
+    padding: 0 8px;
+    height: 35px;
     border: 1px solid $Primary-Dark-Font;
     @include tablet {
       width: 100%;
+      height: 40px;
     }
   }
   &__button {
@@ -74,7 +99,7 @@
     border: none;
     background-color: #4061ba;
     align-self: center;
-    color: $Primary-Light;
+    color: White;
     border-radius: 4px;
     padding: 5px 12px;
     height: 35px;
@@ -83,9 +108,17 @@
       width: 30%;
       align-self: flex-start;
     }
+    @include desktop {
+      margin-left: 1rem;
+      align-self: center;
+      height: 40px;
+    }
   }
 }
 
 .chart {
   width: 100;
+  @include desktop {
+    margin-top: 1rem;
+  }
 }

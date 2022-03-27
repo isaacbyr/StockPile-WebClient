@@ -3,52 +3,76 @@
 
 .portfoliopro {
   @include display-flex(column, center, center);
-  padding: 0 16px;
-
-  @include tablet {
-    padding: 0 36px;
-  }
 
   &__header {
     color: $Primary-Dark-Font;
     font-size: 3rem;
     margin: 2rem;
+    padding: 0 16px;
+
+    @include tablet {
+      padding: 0 36px;
+    }
   }
 
   &-container {
     width: 100%;
     @include desktop {
-      @include display-flex(row, space-between, flex-start);
     }
   }
 
-  &__chart-wrapper {
+  &__chart-container {
+    @include max-width;
     width: 100%;
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
-    margin: 0 0 1rem 0;
+    // margin: 0 1rem 1rem 1rem;
 
     @include tablet {
+      width: 95%;
+      //margin: 0 0 2.25rem 0;
+      padding: 2.25rem;
+    }
+    @include desktop {
+    }
+  }
+
+  &__chart-wrapper {
+    @include desktop {
       margin: 0 0 2.25rem 0;
     }
   }
 
   &__info-wrapper {
+    background-color: $Primary-Dark-Backgronund;
+  }
+
+  &__info-container {
+    @include max-width;
+    padding: 1rem 1rem;
     @include tablet {
-      @include display-flex(row, space-between, flex-start);
+      padding: 0 2.25rem;
+      @include display-flex(row, space-between, center);
     }
   }
 
   &__position {
-    width: 100%;
+    margin: 1rem;
+    background-color: white;
+    width: 95%;
     @include tablet {
+      margin: 2.25rem;
       width: 48%;
     }
   }
   &__overview {
-    width: 100%;
+    margin: 1rem;
+    background-color: white;
+    width: 95%;
     @include tablet {
+      margin: 2.25rem;
+
       width: 48%;
     }
   }
