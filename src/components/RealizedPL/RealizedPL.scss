@@ -1,14 +1,8 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.numholdings {
-  padding: 0 16px;
-
+.realizedPL__chart {
   @include tablet {
-    padding: 0 36px;
-  }
-
-  &__header {
-    text-align: center;
+    width: 50%;
   }
 }

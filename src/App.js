@@ -5,6 +5,7 @@ import FeaturesPage from './pages/FeaturesPage/FeaturesPage'
 import PricingPage from './pages/PricingPage/PricingPage'
 import PortfolioProPage from './pages/PortfolioProPage/PortfolioProPage'
 import PortfolioProDashboard from './pages/PortfolioProDashboard/PortfolioProDashboard'
+import Dashboard from './pages/Dashboard/Dashboard'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             path='/portfolioprodashboard'
             component={PortfolioProDashboard}
           />
+          <Route path='/dashboard' component={Dashboard} />
         </Switch>
       </Router>
     </>

@@ -5,6 +5,7 @@ import AccountPieChart from '../../components/AccountPieChart/AccountPieChart'
 import Footer from '../../components/Footer/Footer'
 import PortfolioList from '../../components/PortfolioList/PortfolioList'
 import AccountNumHoldings from '../../components/AccountNumHoldings/AccountNumHoldings'
+import RealizedPL from '../../components/RealizedPL/RealizedPL'
 
 const PortfolioProDashboard = () => {
   return (
@@ -13,11 +14,16 @@ const PortfolioProDashboard = () => {
       <section className='portfoliodashboard'>
         <div className='portfoliodashboard-wrapper'>
           <PortfolioList />
-          <AccountPieChart />
+          {/*Watchlist */}
+        </div>
+        <div className='portfoliodashboard-wrapper middle'>
+          <div className='portfoliodashboard-container'>
+            <AccountNumHoldings />
+            <AccountPieChart />
+          </div>
         </div>
         <div className='portfoliodashboard-wrapper'>
-          {/*Watchlist */}
-          <AccountNumHoldings />
+          <RealizedPL />
         </div>
       </section>
       <Footer />

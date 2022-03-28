@@ -90,16 +90,20 @@ class AccountPieChart extends Component {
   render() {
     return (
       <div className='accountpie'>
-        {this.state.series.length > 0 ? (
-          <ReactApexChart
-            className='accountpie__chart'
-            options={this.state.options}
-            series={this.state.series}
-            type='pie'
-          />
-        ) : (
-          <h1>Loading</h1>
-        )}
+        <h2 className='accountpie__header'>Account Holdings</h2>
+        <div>
+          {this.state.series.length > 0 ? (
+            <ReactApexChart
+              className='accountpie__chart'
+              options={this.state.options}
+              series={this.state.series}
+              height={300}
+              type='pie'
+            />
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
       </div>
     )
   }

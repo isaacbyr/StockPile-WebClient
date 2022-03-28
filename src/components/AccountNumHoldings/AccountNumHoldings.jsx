@@ -14,7 +14,7 @@ class AccountNumHoldings extends Component {
     options: {
       chart: {
         type: 'bar',
-        height: 350,
+        height: 300,
       },
       plotOptions: {
         bar: {
@@ -68,12 +68,15 @@ class AccountNumHoldings extends Component {
   render() {
     return (
       <div className='numholdings'>
-        <ReactApexChart
-          options={this.state.options}
-          series={this.state.series}
-          type='bar'
-          height={350}
-        />
+        <h2 className='numholdings__header'>Top Holdings</h2>
+        <div>
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type='bar'
+            height={300}
+          />
+        </div>
       </div>
     )
   }
