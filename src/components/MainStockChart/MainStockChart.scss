@@ -106,7 +106,7 @@
 
     @include tablet {
       width: 30%;
-      align-self: flex-start;
+      align-self: center;
     }
     @include desktop {
       margin-left: 1rem;

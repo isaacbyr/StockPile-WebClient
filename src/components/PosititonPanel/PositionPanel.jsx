@@ -43,14 +43,24 @@ class PositionPanel extends Component {
     axios
       .get(`http://localhost:44317/api/portfolio/${this.props.ticker}`)
       .then((response) => {
-        var pl =
-          (this.props.price - response.data.AveragePrice) * response.data.Shares
-        this.setState({
-          averagePrice: response.data.AveragePrice,
-          ticker: response.data.Ticker,
-          currentPositionShares: response.data.Shares,
-          profitLoss: pl.toFixed(2),
-        })
+        if (response.data != null) {
+          var pl =
+            (this.props.price - response.data.AveragePrice) *
+            response.data.Shares
+          this.setState({
+            averagePrice: response.data.AveragePrice,
+            ticker: response.data.Ticker,
+            currentPositionShares: response.data.Shares,
+            profitLoss: pl.toFixed(2),
+          })
+        } else {
+          this.setState({
+            averagePrice: 0,
+            ticker: this.props.ticker,
+            currentPositionShares: 0,
+            profitLoss: 0,
+          })
+        }
       })
       .catch((err) => {
         console.log(err)
@@ -150,7 +160,7 @@ class PositionPanel extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.ticker != this.props.ticker) {
-      this.fetchData()
+      this.loadPortfolioStock()
     }
     if (prevProps.price != this.props.price) {
       this.setState({ price: this.props.price })

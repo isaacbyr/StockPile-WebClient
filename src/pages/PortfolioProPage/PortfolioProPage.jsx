@@ -14,6 +14,8 @@ class PortfolioProPage extends Component {
     price: 0,
     interval: '5m',
     chartData: [],
+    maxChart: 5,
+    minChart: 0,
   }
 
   handleChange = (e) => {
@@ -62,6 +64,9 @@ class PortfolioProPage extends Component {
         let highs = data.high
         let opens = data.open
 
+        var max = Math.max(...highs)
+        var min = Math.min(...lows)
+
         let chartData = []
         for (let i = 0; i < closes.length; i++) {
           chartData.push({
@@ -69,7 +74,7 @@ class PortfolioProPage extends Component {
             y: [opens[i], highs[i], lows[i], closes[i]],
           })
         }
-        this.setState({ chartData: chartData })
+        this.setState({ chartData: chartData, maxChart: max, minChart: min })
         this.setState({ price: closes[closes.length - 1].toFixed(2) })
       })
       .catch((error) => {
@@ -160,6 +165,8 @@ class PortfolioProPage extends Component {
                   <MainStockChart
                     fetchStockData={this.fetchStockData}
                     chartData={this.state.chartData}
+                    maxChart={this.state.maxChart}
+                    minChart={this.state.minChart}
                   />
                 ) : (
                   <h1>Loading</h1>

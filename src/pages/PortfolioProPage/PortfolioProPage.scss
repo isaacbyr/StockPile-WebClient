@@ -59,6 +59,7 @@
 
   &__position {
     margin: 1rem;
+    border-radius: 4px;
     background-color: white;
     width: 95%;
     @include tablet {
@@ -68,6 +69,7 @@
   }
   &__overview {
     margin: 1rem;
+    border-radius: 4px;
     background-color: white;
     width: 95%;
     @include tablet {

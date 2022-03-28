@@ -20,6 +20,8 @@ class MainStockChart extends Component {
         type: 'date',
       },
       yaxis: {
+        min: 0,
+        max: 5,
         labels: {
           formatter: function (value) {
             return value.toFixed(2)
@@ -29,20 +31,13 @@ class MainStockChart extends Component {
     },
   }
 
-  // shouldComponentUpdate(nextProps) {
-  //   if (nextProps.chartData != this.props.chartData) {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
-
   componentWillReceiveProps() {
     this.setState({ series: [{ data: this.props.chartData }] })
   }
 
   componentDidMount() {
     this.setState({ series: [{ data: this.props.chartData }] })
+    this.setState({ options: [{}] })
   }
 
   render() {
