@@ -1,8 +1,10 @@
 import React from 'react'
 import './PortfolioProDashboard.scss'
 import Navbar from '../../components/Navbar/Navbar'
+import AccountPieChart from '../../components/AccountPieChart/AccountPieChart'
 import Footer from '../../components/Footer/Footer'
 import PortfolioList from '../../components/PortfolioList/PortfolioList'
+import AccountNumHoldings from '../../components/AccountNumHoldings/AccountNumHoldings'
 
 const PortfolioProDashboard = () => {
   return (
@@ -11,11 +13,11 @@ const PortfolioProDashboard = () => {
       <section className='portfoliodashboard'>
         <div className='portfoliodashboard-wrapper'>
           <PortfolioList />
-          {/* Pie Chart */}
+          <AccountPieChart />
         </div>
         <div className='portfoliodashboard-wrapper'>
           {/*Watchlist */}
-          {/* Num Holdings? */}
+          <AccountNumHoldings />
         </div>
       </section>
       <Footer />

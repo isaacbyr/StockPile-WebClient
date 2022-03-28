@@ -1,14 +1,16 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.portfolio {
-  padding: 0 16px;
+.accountpie {
   width: 100%;
+  //padding: 0 16px;
 
   @include tablet {
     width: 50%;
   }
-  &__table--header {
-    @include display-flex(row, space-between, center);
+
+  &__chart {
+    width: 95%;
+    margin: 0 16px;
   }
 }

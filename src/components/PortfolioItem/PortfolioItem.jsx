@@ -1,7 +1,15 @@
 import React from 'react'
 import './PortfolioItem.scss'
-export const PortfolioItem = () => {
-  return <div>PortfolioItem</div>
+export const PortfolioItem = ({ ticker, shares, averagePrice }) => {
+  return (
+    <>
+      <div className='portfolioItem'>
+        <p>{ticker}</p>
+        <p>{shares}</p>
+        <p>{averagePrice}</p>
+      </div>
+    </>
+  )
 }
 
 export default PortfolioItem

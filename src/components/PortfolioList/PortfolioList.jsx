@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './PortfolioList.scss'
 import PortfolioItem from '../PortfolioItem/PortfolioItem'
 import axios from 'axios'
 import uuid from 'react-uuid'
@@ -21,7 +22,7 @@ class PortfolioList extends Component {
   render() {
     return (
       <>
-        <section className='porfolio'>
+        <section className='portfolio'>
           <h2 className='portfolio__header'>Portfolio</h2>
           <div className='portfolio__table--header'>
             <p className='portfolio__table--item'>Ticker</p>

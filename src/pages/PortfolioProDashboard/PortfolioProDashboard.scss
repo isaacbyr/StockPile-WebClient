@@ -1,0 +1,12 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.portfoliodashboard {
+  &-wrapper {
+    @include max-width;
+    @include tablet {
+      padding: 0 36px;
+      @include display-flex(row, space-between, flex-start);
+    }
+  }
+}
