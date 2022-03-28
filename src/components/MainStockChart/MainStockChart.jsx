@@ -20,8 +20,6 @@ class MainStockChart extends Component {
         type: 'date',
       },
       yaxis: {
-        min: 0,
-        max: 5,
         labels: {
           formatter: function (value) {
             return value.toFixed(2)
@@ -32,19 +30,20 @@ class MainStockChart extends Component {
   }
 
   componentWillReceiveProps() {
+    console.log(this.props.chartData)
     this.setState({ series: [{ data: this.props.chartData }] })
   }
 
   componentDidMount() {
+    console.log(this.props.chartData)
     this.setState({ series: [{ data: this.props.chartData }] })
-    this.setState({ options: [{}] })
   }
 
   render() {
     return (
       <>
         <div className='chart'>
-          {this.state.series[0].data ? (
+          {this.state.series[0].data.length > 0 ? (
             <ReactApexChart
               options={this.state.options}
               series={this.state.series}

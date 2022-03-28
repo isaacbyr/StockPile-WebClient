@@ -25,6 +25,12 @@ class NewsList extends Component {
       })
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.ticker != this.props.ticker) {
+      this.fetchData()
+    }
+  }
+
   render() {
     return (
       <div className='newslist'>

@@ -76,7 +76,7 @@ class PortfolioProPage extends Component {
             y: [opens[i], highs[i], lows[i], closes[i]],
           })
         }
-        this.setState({ chartData: chartData, maxChart: max, minChart: min })
+        this.setState({ chartData: chartData })
         this.setState({ price: closes[closes.length - 1].toFixed(2) })
       })
       .catch((error) => {
@@ -167,8 +167,6 @@ class PortfolioProPage extends Component {
                   <MainStockChart
                     fetchStockData={this.fetchStockData}
                     chartData={this.state.chartData}
-                    maxChart={this.state.maxChart}
-                    minChart={this.state.minChart}
                   />
                 ) : (
                   <h1>Loading</h1>
