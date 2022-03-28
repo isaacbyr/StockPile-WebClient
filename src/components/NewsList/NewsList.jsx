@@ -34,21 +34,23 @@ class NewsList extends Component {
   render() {
     return (
       <div className='newslist'>
-        <h2 className='newslist__header'>Lastest News</h2>
-        {this.state.articles.length > 0 ? (
-          this.state.articles.map((article) => {
-            return (
-              <NewsItem
-                key={article.id}
-                title={article.title}
-                url={article.article_url}
-                logo_url={article.image_url}
-              />
-            )
-          })
-        ) : (
-          <h1>Loading</h1>
-        )}
+        <h2 className='newslist__header'>Latest News</h2>
+        <div className='newslist__list'>
+          {this.state.articles.length > 0 ? (
+            this.state.articles.map((article) => {
+              return (
+                <NewsItem
+                  key={article.id}
+                  title={article.title}
+                  url={article.article_url}
+                  logo_url={article.image_url}
+                />
+              )
+            })
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
       </div>
     )
   }

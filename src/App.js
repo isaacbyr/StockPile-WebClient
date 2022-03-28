@@ -4,6 +4,7 @@ import Home from './pages/Home/Home'
 import FeaturesPage from './pages/FeaturesPage/FeaturesPage'
 import PricingPage from './pages/PricingPage/PricingPage'
 import PortfolioProPage from './pages/PortfolioProPage/PortfolioProPage'
+import PortfolioProDashboard from './pages/PortfolioProDashboard/PortfolioProDashboard'
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
           <Route path='/features' component={FeaturesPage} />
           <Route path='/pricing' component={PricingPage} />
           <Route path='/portfoliopro' component={PortfolioProPage} />
+          <Route
+            path='/portfolioprodashboard'
+            component={PortfolioProDashboard}
+          />
         </Switch>
       </Router>
     </>

@@ -34,7 +34,7 @@
     @include tablet {
       width: 95%;
       //margin: 0 0 2.25rem 0;
-      padding: 2.25rem;
+      padding: 2.25rem 2.25rem 1.5rem 2.25rem;
     }
     @include desktop {
     }
@@ -89,7 +89,7 @@
     padding: 1rem 1rem;
     @include tablet {
       padding: 0 2.25rem;
-      @include display-flex(row, space-between, center);
+      @include display-flex(row, space-between, flex-start);
     }
   }
   &__articles {
@@ -98,16 +98,16 @@
     background-color: white;
     @include tablet {
       margin: 2.25rem;
-      width: 70%;
+      width: 60%;
     }
   }
-  &__twitter {
+  &__comments {
     margin: 1rem;
     border-radius: 4px;
     background-color: white;
     @include tablet {
       margin: 2.25rem;
-      width: 30%;
+      width: 40%;
     }
   }
 }

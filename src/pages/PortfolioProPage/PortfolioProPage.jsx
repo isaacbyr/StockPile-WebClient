@@ -5,6 +5,7 @@ import PositionPanel from '../../components/PosititonPanel/PositionPanel'
 import CompanyOverview from '../../components/CompanyOverview/CompanyOverview'
 import Twitter from '../../components/Twitter/Twitter'
 import NewsList from '../../components/NewsList/NewsList'
+import CommentsList from '../../components/CommentsList/CommentsList'
 import Footer from '../../components/Footer/Footer'
 import axios from 'axios'
 import './PortfolioProPage.scss'
@@ -191,8 +192,8 @@ class PortfolioProPage extends Component {
                 <div className='portfoliopro__articles'>
                   <NewsList ticker={this.state.ticker} />
                 </div>
-                <div className='portfoliopro__twitter'>
-                  <Twitter ticker={this.state.ticker} />
+                <div className='portfoliopro__comments'>
+                  <CommentsList ticker={this.state.ticker} />
                 </div>
               </div>
             </div>

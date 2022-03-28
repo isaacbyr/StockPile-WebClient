@@ -11,4 +11,7 @@
     color: $Primary-Dark-Font;
     border-bottom: 1px solid $Primary-Dark-Font;
   }
+  &__list {
+    @include display-flex(column, space-between, flex-start);
+  }
 }

@@ -48,7 +48,7 @@ class MainStockChart extends Component {
               options={this.state.options}
               series={this.state.series}
               type='candlestick'
-              height={400}
+              height={450}
             />
           ) : (
             <h1>Loading</h1>
