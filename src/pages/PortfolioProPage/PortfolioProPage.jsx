@@ -3,6 +3,8 @@ import MainStockChart from '../../components/MainStockChart/MainStockChart'
 import Navbar from '../../components/Navbar/Navbar'
 import PositionPanel from '../../components/PosititonPanel/PositionPanel'
 import CompanyOverview from '../../components/CompanyOverview/CompanyOverview'
+import Twitter from '../../components/Twitter/Twitter'
+import NewsList from '../../components/NewsList/NewsList'
 import Footer from '../../components/Footer/Footer'
 import axios from 'axios'
 import './PortfolioProPage.scss'
@@ -183,6 +185,16 @@ class PortfolioProPage extends Component {
                 </div>
                 <div className='portfoliopro__overview'>
                   <CompanyOverview ticker={this.state.ticker} />
+                </div>
+              </div>
+            </div>
+            <div className='portfoliopro__news'>
+              <div className='portfoliopro__news-wrapper'>
+                <div className='portfoliopro__articles'>
+                  <NewsList ticker={this.state.ticker} />
+                </div>
+                <div className='portfoliopro__twitter'>
+                  <Twitter ticker={this.state.ticker} />
                 </div>
               </div>
             </div>

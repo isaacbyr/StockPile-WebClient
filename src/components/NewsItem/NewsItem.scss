@@ -1,0 +1,23 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.newsItem {
+  @include display-flex(row, flex-start, center);
+
+  &__img {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+
+    @include tablet {
+      margin: 0.2rem 0;
+    }
+  }
+
+  &__text {
+    align-self: center;
+    margin: 0.3rem 0.5rem;
+    color: $Primary-Dark-Font;
+  }
+}

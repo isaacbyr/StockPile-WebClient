@@ -26,8 +26,10 @@
     width: 100%;
     padding: 1rem;
     border-radius: 4px;
+    border: 2px solid $Primary-Dark-Font;
     box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
     // margin: 0 1rem 1rem 1rem;
+    margin: 1rem;
 
     @include tablet {
       width: 95%;
@@ -76,6 +78,36 @@
       margin: 2.25rem;
 
       width: 48%;
+    }
+  }
+
+  &__news {
+  }
+
+  &__news-wrapper {
+    @include max-width;
+    padding: 1rem 1rem;
+    @include tablet {
+      padding: 0 2.25rem;
+      @include display-flex(row, space-between, center);
+    }
+  }
+  &__articles {
+    margin: 1rem;
+    border-radius: 4px;
+    background-color: white;
+    @include tablet {
+      margin: 2.25rem;
+      width: 70%;
+    }
+  }
+  &__twitter {
+    margin: 1rem;
+    border-radius: 4px;
+    background-color: white;
+    @include tablet {
+      margin: 2.25rem;
+      width: 30%;
     }
   }
 }
