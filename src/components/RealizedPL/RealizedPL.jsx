@@ -64,6 +64,7 @@ class RealizedPL extends Component {
   render() {
     return (
       <div className='realizedPL__chart'>
+        <h2 className='realizedPL__chart--header'>Realized Profit/Loss</h2>
         <ReactApexChart
           options={this.state.options}
           series={this.state.series}

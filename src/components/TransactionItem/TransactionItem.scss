@@ -1,11 +1,11 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.portfolioItem {
+.transactionItem {
   @include display-flex(row, space-between, center);
 
-  p {
-    width: 20%;
+  &__item {
     text-align: center;
+    width: 20%;
   }
 }
