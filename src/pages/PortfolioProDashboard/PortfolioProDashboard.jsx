@@ -8,12 +8,14 @@ import PortfolioList from '../../components/PortfolioList/PortfolioList'
 import AccountNumHoldings from '../../components/AccountNumHoldings/AccountNumHoldings'
 import TransactionList from '../../components/TransactionList/TransactionList'
 import RealizedPL from '../../components/RealizedPL/RealizedPL'
+import PortfolioOverview from '../../components/PortfolioOverview/PortfolioOverview'
 
 const PortfolioProDashboard = () => {
   return (
     <>
       <Navbar />
       <section className='portfoliodashboard'>
+        <h2 className='portfoliodashboard__header'>PortfolioPro Dashboard</h2>
         <div className='portfoliodashboard-wrapper'>
           <div className='portfoliodashboard-container'>
             <AccountNumHoldings />
@@ -22,8 +24,13 @@ const PortfolioProDashboard = () => {
         </div>
         <div className='portfoliodashboard-wrapper middle'>
           <div className='portfoliodashboard-container middle'>
-            <PortfolioList />
-            <Watchlist />
+            <div className='portfoliodashboard__tablet-first'>
+              <PortfolioList />
+            </div>
+            <div className='portfoliodashboard__tablet-second'>
+              <Watchlist />
+              <PortfolioOverview />
+            </div>
           </div>
         </div>
 

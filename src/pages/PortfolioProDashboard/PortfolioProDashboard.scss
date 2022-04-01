@@ -2,6 +2,15 @@
 @use '../../styles/partials/variables' as *;
 
 .portfoliodashboard {
+  &__header {
+    text-align: center;
+    margin: 2rem;
+    color: $Primary-Dark-Font;
+    text-decoration: underline;
+    @include tablet {
+      margin: 3rem;
+    }
+  }
   &-wrapper {
     @include tablet {
       padding: 0 36px;
@@ -13,15 +22,50 @@
       @include tablet {
         margin: 2.25rem 0;
       }
+      @include desktop {
+        @include display-flex(row, space-between, flex-start);
+      }
     }
   }
   &-container {
-    width: 100%;
-    @include display-flex(row, space-between, flex-start);
     @include max-width;
+    width: 100%;
+    @include display-flex(column, center, center);
+
+    @include tablet {
+      @include display-flex(row, space-between, flex-start);
+    }
 
     &.middle {
+      @include display-flex(column, space-around, center);
+      @include desktop {
+        @include display-flex(row, space-between, flex-start);
+      }
+    }
+  }
+
+  &__tablet-first {
+    width: 100%;
+    @include tablet {
+      @include display-flex(row, center, center);
+      @include max-width-tablet;
+    }
+    @include desktop {
+      width: 40%;
+      @include display-flex(row, flex-start, center);
+      margin: 0;
+    }
+  }
+
+  &__tablet-second {
+    width: 100%;
+    @include tablet {
       @include display-flex(row, space-around, flex-start);
+      @include max-width-tablet;
+    }
+    @include desktop {
+      width: 55%;
+      margin: 0;
     }
   }
 }

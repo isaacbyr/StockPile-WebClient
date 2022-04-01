@@ -9,10 +9,16 @@
   color: white;
   border: 1px solid White;
   box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
+  margin: 0.5rem 0;
 
   @include tablet {
-    width: 30%;
+    width: 45%;
     padding: 2.25rem;
+  }
+  @include desktop {
+    width: 100%;
+    padding: 2.25rem;
+    margin: 0 0.5rem 0 0;
   }
 
   &__header {
