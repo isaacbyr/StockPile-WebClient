@@ -164,6 +164,10 @@ class PositionPanel extends Component {
     }
     if (prevProps.price != this.props.price) {
       this.setState({ price: this.props.price })
+      this.setState({
+        profitLoss:
+          (this.props.price - this.state.AveragePrice) * this.state.Shares,
+      })
     }
   }
 

@@ -2,10 +2,18 @@
 @use '../../styles/partials/variables' as *;
 
 .portfoliodashboard {
+  &__header-wrapper {
+    width: 100%;
+    @include max-width;
+    @include display-flex(row, center, center);
+  }
+
   &__header {
     text-align: center;
     margin: 2rem;
     color: $Primary-Dark-Font;
+    width: 90%;
+    text-align: center;
     text-decoration: underline;
     @include tablet {
       margin: 3rem;

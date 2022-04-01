@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './PortfolioProDashboard.scss'
+import { Link } from 'react-router-dom'
+import BackArrow from '../../assets/Icons/back_arrow_blue.png'
 import Navbar from '../../components/Navbar/Navbar'
 import AccountPieChart from '../../components/AccountPieChart/AccountPieChart'
 import Footer from '../../components/Footer/Footer'
@@ -91,7 +93,14 @@ class PortfolioProDashboard extends Component {
       <>
         <Navbar />
         <section className='portfoliodashboard'>
-          <h1 className='portfoliodashboard__header'>PortfolioPro Dashboard</h1>
+          <div className='portfoliodashboard__header-wrapper'>
+            <Link to={'/home'}>
+              <img src={BackArrow} />
+            </Link>
+            <h1 className='portfoliodashboard__header'>
+              PortfolioPro Dashboard
+            </h1>
+          </div>
           <div className='portfoliodashboard-wrapper'>
             <div className='portfoliodashboard-container'>
               <AccountNumHoldings />

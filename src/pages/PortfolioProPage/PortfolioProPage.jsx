@@ -43,6 +43,7 @@ class PortfolioProPage extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     const stockTicker = this.props.match.params.id
     if (stockTicker) {
       this.setState({ ticker: stockTicker }, () => this.fetchStockData())
