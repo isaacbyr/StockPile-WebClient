@@ -19,5 +19,9 @@
     width: 100%;
     @include display-flex(row, space-between, flex-start);
     @include max-width;
+
+    &.middle {
+      @include display-flex(row, space-around, flex-start);
+    }
   }
 }

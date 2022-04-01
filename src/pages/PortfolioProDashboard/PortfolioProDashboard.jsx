@@ -3,6 +3,7 @@ import './PortfolioProDashboard.scss'
 import Navbar from '../../components/Navbar/Navbar'
 import AccountPieChart from '../../components/AccountPieChart/AccountPieChart'
 import Footer from '../../components/Footer/Footer'
+import Watchlist from '../../components/Watchlist/Watchlist'
 import PortfolioList from '../../components/PortfolioList/PortfolioList'
 import AccountNumHoldings from '../../components/AccountNumHoldings/AccountNumHoldings'
 import TransactionList from '../../components/TransactionList/TransactionList'
@@ -14,15 +15,18 @@ const PortfolioProDashboard = () => {
       <Navbar />
       <section className='portfoliodashboard'>
         <div className='portfoliodashboard-wrapper'>
-          <PortfolioList />
-          {/*Watchlist */}
-        </div>
-        <div className='portfoliodashboard-wrapper middle'>
           <div className='portfoliodashboard-container'>
             <AccountNumHoldings />
             <AccountPieChart />
           </div>
         </div>
+        <div className='portfoliodashboard-wrapper middle'>
+          <div className='portfoliodashboard-container middle'>
+            <PortfolioList />
+            <Watchlist />
+          </div>
+        </div>
+
         <div className='portfoliodashboard-wrapper'>
           <div className='portfoliodashboard-container'>
             <TransactionList />

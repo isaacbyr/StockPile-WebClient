@@ -16,48 +16,67 @@ class PortfolioList extends Component {
       .get('http://localhost:44317/api/portfolio')
       .then((response) => {
         console.log(response)
+        var data = response.data
         let query = this.convertStocksIntoQuery(response.data)
-        let marketPrices = this.loadMulitpleStockData(query)
-        let portfolio = []
-
-        for (let i = 0; i < response.data.length; i++) {
-          var stock = {
-            Ticker: response.data[i].Ticker,
-            AveragePrice: response.data[i].AveragePrice,
-            Shares: response.data[i].Shares,
-            MarketPrice: marketPrices[i],
-            ProfitLoss:
-              (marketPrices[i] - response.data[i].AveragePrice) *
-              response.data[i].Shares,
-          }
-          portfolio.push(stock)
+        var options = {
+          method: 'GET',
+          url: `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${query}`,
+          params: { modules: 'defaultKeyStatistics,assetProfile' },
+          headers: {
+            'x-api-key': '9l4Vorm2Kb7Z5HeFpMN8raQTY4X8z0HL9bMNChR6',
+          },
         }
-        console.log(portfolio)
-        this.setState({ portfolioStocks: portfolio })
+        axios
+          .request(options)
+          .then((response) => {
+            let results = response.data.quoteResponse.result
+            let marketPrices = []
+            results.map((result) => {
+              marketPrices.push(result.regularMarketPrice)
+            })
+            let portfolio = []
+
+            for (let i = 0; i < data.length; i++) {
+              var stock = {
+                Ticker: data[i].Ticker,
+                AveragePrice: data[i].AveragePrice,
+                Shares: data[i].Shares,
+                MarketPrice: marketPrices[i],
+                ProfitLoss:
+                  (marketPrices[i] - data[i].AveragePrice) * data[i].Shares,
+              }
+              portfolio.push(stock)
+            }
+            console.log(portfolio)
+            this.setState({ portfolioStocks: portfolio })
+          })
+          .catch((err) => {
+            console.log(err)
+          })
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
-  async loadMulitpleStockData(query) {
-    var options = {
-      method: 'GET',
-      url: `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${query}`,
-      params: { modules: 'defaultKeyStatistics,assetProfile' },
-      headers: {
-        'x-api-key': '9l4Vorm2Kb7Z5HeFpMN8raQTY4X8z0HL9bMNChR6',
-      },
-    }
-    axios.request(options).then((response) => {
-      let results = response.data.quoteResponse.result
-      let marketPrices = []
-      results.map((result) => {
-        marketPrices.push(result.regularMarketPrice)
-      })
-      return marketPrices
-    })
-  }
+  // async loadMulitpleStockData(query) {
+  //   var options = {
+  //     method: 'GET',
+  //     url: `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${query}`,
+  //     params: { modules: 'defaultKeyStatistics,assetProfile' },
+  //     headers: {
+  //       'x-api-key': '9l4Vorm2Kb7Z5HeFpMN8raQTY4X8z0HL9bMNChR6',
+  //     },
+  //   }
+  //   axios.request(options).then((response) => {
+  //     let results = response.data.quoteResponse.result
+  //     let marketPrices = []
+  //     results.map((result) => {
+  //       marketPrices.push(result.regularMarketPrice)
+  //     })
+  //     return marketPrices
+  //   })
+  // }
 
   convertStocksIntoQuery = (stocks) => {
     let query = ''
@@ -96,7 +115,7 @@ class PortfolioList extends Component {
                     shares={stock.Shares}
                     averagePrice={stock.AveragePrice}
                     marketPrice={stock.MarketPrice}
-                    proftiLoss={stock.ProfitLoss}
+                    profitLoss={stock.ProfitLoss}
                   />
                 )
               })

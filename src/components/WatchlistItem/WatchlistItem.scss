@@ -1,11 +1,11 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.portfolioItem {
+.watchlistItem {
   @include display-flex(row, space-between, center);
 
   p {
-    width: 20%;
+    width: 30%;
     text-align: center;
     margin: 0.2rem;
   }
