@@ -4,11 +4,19 @@
 .portfoliopro {
   @include display-flex(column, center, center);
 
+  &__header-wrapper {
+    width: 100%;
+    @include max-width;
+    @include display-flex(row, center, center);
+  }
+
   &__header {
     color: $Primary-Dark-Font;
     font-size: 3rem;
     margin: 2rem;
     padding: 0 16px;
+    width: 90%;
+    text-align: center;
 
     @include tablet {
       padding: 0 36px;

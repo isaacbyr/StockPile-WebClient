@@ -20,9 +20,10 @@ class MainStockChart extends Component {
         type: 'date',
       },
       yaxis: {
+        forceNiceScale: true,
         labels: {
           formatter: function (value) {
-            return value.toFixed(2)
+            return Math.round(value)
           },
         },
       },

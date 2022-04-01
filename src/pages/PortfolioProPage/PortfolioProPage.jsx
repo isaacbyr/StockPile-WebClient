@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import MainStockChart from '../../components/MainStockChart/MainStockChart'
 import Navbar from '../../components/Navbar/Navbar'
 import PositionPanel from '../../components/PosititonPanel/PositionPanel'
 import CompanyOverview from '../../components/CompanyOverview/CompanyOverview'
+import BackArrow from '../../assets/Icons/back_arrow_blue.png'
 import Twitter from '../../components/Twitter/Twitter'
 import NewsList from '../../components/NewsList/NewsList'
 import CommentsList from '../../components/CommentsList/CommentsList'
@@ -12,7 +14,7 @@ import './PortfolioProPage.scss'
 
 class PortfolioProPage extends Component {
   state = {
-    ticker: 'AAPL',
+    ticker: '',
     range: '5d',
     price: 0,
     interval: '5m',
@@ -29,6 +31,7 @@ class PortfolioProPage extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+
     this.setState({ ticker: e.target.ticker.value }, () =>
       this.fetchStockData()
     )
@@ -40,7 +43,12 @@ class PortfolioProPage extends Component {
   }
 
   componentDidMount() {
-    this.fetchStockData()
+    const stockTicker = this.props.match.params.id
+    if (stockTicker) {
+      this.setState({ ticker: stockTicker }, () => this.fetchStockData())
+    } else {
+      this.setState({ ticker: 'AAPL' }, () => this.fetchStockData())
+    }
   }
 
   fetchStockData = () => {
@@ -67,15 +75,20 @@ class PortfolioProPage extends Component {
         let highs = data.high
         let opens = data.open
 
-        var max = Math.max(...highs)
-        var min = Math.min(...lows)
-
+        var min = 10000
+        var max = -10000
         let chartData = []
         for (let i = 0; i < closes.length; i++) {
           chartData.push({
             x: timestamps[i],
             y: [opens[i], highs[i], lows[i], closes[i]],
           })
+          if (lows[i] < min) {
+            min = Math.round(lows[i])
+          }
+          if (highs[i] > max) {
+            max = Math.round(highs[i])
+          }
         }
         this.setState({ chartData: chartData })
         this.setState({ price: closes[closes.length - 1].toFixed(2) })
@@ -92,7 +105,12 @@ class PortfolioProPage extends Component {
       <>
         <Navbar />
         <section className='portfoliopro'>
-          <h1 className='portfoliopro__header'>PortfolioPro</h1>
+          <div className='portfoliopro__header-wrapper'>
+            <Link to={'/home'}>
+              <img src={BackArrow} />
+            </Link>
+            <h1 className='portfoliopro__header'>PortfolioPro</h1>
+          </div>
           <div className='portfoliopro-container'>
             <div className='portfoliopro__chart-wrapper'>
               <div className='portfoliopro__chart-container'>
@@ -168,6 +186,8 @@ class PortfolioProPage extends Component {
                   <MainStockChart
                     fetchStockData={this.fetchStockData}
                     chartData={this.state.chartData}
+                    maxChart={this.state.maxChart}
+                    minChart={this.state.minChart}
                   />
                 ) : (
                   <h1>Loading</h1>

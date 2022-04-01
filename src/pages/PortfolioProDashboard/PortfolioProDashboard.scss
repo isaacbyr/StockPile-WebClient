@@ -9,6 +9,7 @@
     text-decoration: underline;
     @include tablet {
       margin: 3rem;
+      font-size: 3rem;
     }
   }
   &-wrapper {
@@ -30,6 +31,7 @@
   &-container {
     @include max-width;
     width: 100%;
+    margin: 1rem 0;
     @include display-flex(column, center, center);
 
     @include tablet {

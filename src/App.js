@@ -15,6 +15,7 @@ function App() {
           <Route path='/home' component={Home} />
           <Route path='/features' component={FeaturesPage} />
           <Route path='/pricing' component={PricingPage} />
+          <Route path='/portfoliopro/:id' component={PortfolioProPage} />
           <Route path='/portfoliopro' component={PortfolioProPage} />
           <Route
             path='/portfolioprodashboard'

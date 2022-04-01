@@ -81,7 +81,7 @@ class Watchlist extends Component {
           <h2 className='watchlist__header'>Watchlist</h2>
           <div className='watchlist__table--header'>
             <p className='watchlist__table--item'>Ticker</p>
-            <p className='watchlist__table--item'>Market Price</p>
+            <p className='watchlist__table--item'>Mkt. Price</p>
             <p className='watchlist__table--item'>Daily %</p>
           </div>
           <div>
