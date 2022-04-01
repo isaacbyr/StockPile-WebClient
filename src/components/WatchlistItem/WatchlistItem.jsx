@@ -1,17 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './WatchlistItem.scss'
 
 const WatchlistItem = ({ ticker, marketPrice, percentChanged }) => {
   return (
     <>
       <div className='watchlistItem'>
-        <p
-          className={
-            percentChanged < 0 ? 'watchlistItem__red' : 'watchlistItem__green'
-          }
-        >
-          {ticker}
-        </p>
+        <Link className='watchlistItem__link' to={`/portfoliopro/${ticker}`}>
+          <p
+            className={
+              percentChanged < 0 ? 'watchlistItem__red' : 'watchlistItem__green'
+            }
+          >
+            {ticker}
+          </p>
+        </Link>
         <p
           className={
             percentChanged < 0 ? 'watchlistItem__red' : 'watchlistItem__green'

@@ -10,6 +10,13 @@
     margin: 0.2rem;
   }
 
+  &__link {
+    width: 30%;
+    text-decoration: none;
+    padding-right: 0.4rem;
+    @include display-flex(row, center, center);
+  }
+
   &__red {
     color: #ff2620;
   }
