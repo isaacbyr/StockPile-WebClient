@@ -31,12 +31,10 @@ class MainStockChart extends Component {
   }
 
   componentWillReceiveProps() {
-    console.log(this.props.chartData)
     this.setState({ series: [{ data: this.props.chartData }] })
   }
 
   componentDidMount() {
-    console.log(this.props.chartData)
     this.setState({ series: [{ data: this.props.chartData }] })
   }
 

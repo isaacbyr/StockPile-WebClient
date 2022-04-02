@@ -1,0 +1,9 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.dashboard__charts {
+  @include max-width;
+  @include desktop {
+    @include display-flex(row, space-between, center);
+  }
+}

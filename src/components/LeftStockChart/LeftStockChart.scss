@@ -1,0 +1,120 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.leftChart {
+  margin: 1rem 0;
+  padding: 16px 16px;
+  color: $Primary-Dark-Font;
+  @include tablet {
+    margin: 2.25rem 0;
+    padding: 0 36px;
+  }
+  @include desktop {
+    width: 49%;
+    @include display-flex(column, space-between, center);
+    border-radius: 4px;
+    border: 2px solid $Primary-Dark-Font;
+    padding: 2rem 2rem 0.5rem 2rem;
+  }
+
+  &-header {
+    @include desktop {
+      width: 100%;
+      @include display-flex(row, space-around, center);
+    }
+  }
+
+  &-header-wrapper-1 {
+    @include display-flex(row, flex-start, center);
+    @include tablet {
+      @include display-flex(row, flex-start, center);
+    }
+    @include desktop {
+      width: 50%;
+    }
+  }
+  &-header-wrapper-2 {
+    margin: 0 0 1rem 0;
+    @include tablet {
+      width: 100%;
+      @include display-flex(row, flex-start, center);
+    }
+    @include desktop {
+      width: 100%;
+      @include display-flex(row, space-between, center);
+      margin: 0;
+    }
+  }
+
+  &-header__stock {
+    font-size: 18px;
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+  &-header__price {
+    font-size: 18px;
+    margin: 0 0 0 1rem;
+    @include tablet {
+      font-size: 30px;
+      margin: 0.2rem 0 0 1.5rem;
+    }
+  }
+
+  &-header__search {
+    width: 100%;
+    @include tablet {
+      width: 60%;
+      @include display-flex(row, flex-start, center);
+    }
+    @include desktop {
+      @include display-flex(row, flex-end, center);
+      width: 100%;
+    }
+  }
+  &-header__input {
+    width: 100%;
+    border-radius: 4px;
+    padding: 0 8px;
+    height: 35px;
+    border: 1px solid $Primary-Dark-Font;
+    margin: 0.5rem 0 0.1rem 0;
+
+    @include tablet {
+      width: 30%;
+      margin: 0 0.2rem;
+      height: 40px;
+    }
+    @include desktop {
+      max-width: 100px;
+    }
+  }
+  &-header__button {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: #4061ba;
+    align-self: center;
+    color: White;
+    border-radius: 4px;
+    padding: 5px 12px;
+    height: 35px;
+
+    @include tablet {
+      width: 30%;
+      height: 40px;
+      margin: 0 0.2rem;
+      align-self: center;
+    }
+    @include desktop {
+      margin-left: 0.2rem;
+      align-self: center;
+      height: 40px;
+      width: 120px;
+    }
+  }
+
+  &__chart {
+    width: 100%;
+  }
+}
