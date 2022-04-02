@@ -7,3 +7,85 @@
     @include display-flex(row, space-between, center);
   }
 }
+
+.dashboard__header {
+  @include max-width;
+
+  &-container {
+    margin: 16px 0;
+    padding: 0 16px;
+
+    @include tablet {
+      margin: 2.25rem 0;
+      padding: 0 2.25rem;
+    }
+  }
+
+  &--title {
+    font-size: 2rem;
+    color: $Primary-Dark-Font;
+    text-align: center;
+    text-decoration: underline;
+    @include tablet {
+      font-size: 2.5rem;
+    }
+  }
+
+  &-wrapper {
+    margin: 1rem 0;
+    @include display-flex(column, flex-start, flex-start);
+
+    @include tablet {
+      @include display-flex(row, space-between, center);
+    }
+  }
+
+  &--link {
+    color: #22395d;
+    text-decoration: none;
+    margin: 0.2rem 0;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.dashboard__info {
+  @include max-width;
+
+  &-container {
+    margin: 1rem 0;
+    width: 100%;
+    padding: 0 16px;
+    @include display-flex(column, flex-start, flex-start);
+    @include tablet {
+      margin: 2.25rem 0;
+      padding: 0 2.25rem;
+      @include display-flex(column, flex-start, flex-start);
+    }
+
+    @include desktop {
+      @include display-flex(row, space-between, flex-start);
+      padding: 0;
+    }
+  }
+
+  &-wrapper {
+    width: 100%;
+    @include display-flex(column, flex-start, flex-start);
+
+    @include tablet {
+      width: 100%;
+      @include display-flex(row, space-between, flex-start);
+    }
+    @include desktop {
+      width: 49%;
+      @include display-flex(row, space-between, flex-start);
+    }
+  }
+}
