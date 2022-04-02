@@ -86,21 +86,22 @@ class CommentsList extends Component {
               Post
             </button>
           </form>
-
-          {this.state.comments.length > 0 ? (
-            this.state.comments.map((comment) => {
-              return (
-                <Comment
-                  key={comment.Id}
-                  comment={comment.Comment}
-                  fullname={comment.FullName}
-                  postedAt={comment.PostedAt}
-                />
-              )
-            })
-          ) : (
-            <h1 className='commentslist__empty'>No Comments :(</h1>
-          )}
+          <div className='commentslist__list'>
+            {this.state.comments.length > 0 ? (
+              this.state.comments.map((comment) => {
+                return (
+                  <Comment
+                    key={comment.Id}
+                    comment={comment.Comment}
+                    fullname={comment.FullName}
+                    postedAt={comment.PostedAt}
+                  />
+                )
+              })
+            ) : (
+              <h1 className='commentslist__empty'>No Comments :(</h1>
+            )}
+          </div>
         </div>
       </>
     )

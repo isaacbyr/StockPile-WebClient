@@ -34,7 +34,7 @@ class DailyGainers extends Component {
         }
         stocks.push(item)
       })
-      this.setState({ gainers: stocks.slice(0, 10) })
+      this.setState({ gainers: stocks.slice(0, 8) })
     })
   }
 

@@ -7,6 +7,7 @@ import DailyGainers from '../../components/DailyGainers/DailyGainers'
 import NewsList from '../../components/NewsList/NewsList'
 import LeftStockChart from '../../components/LeftStockChart/LeftStockChart'
 import RightStockChart from '../../components/RightStockChart/RightStockChart'
+import DashboardCommentsList from '../../components/DashboardCommentsList/DashboardCommentsList'
 import './Dashboard.scss'
 
 const Dashboard = () => {
@@ -38,11 +39,18 @@ const Dashboard = () => {
       </section>
       <section className='dashboard__info'>
         <div className='dashboard__info-container'>
-          <NewsList ticker={'SPY'} />
+          <div className='dashboard__info--news'>
+            <NewsList ticker={'SPY'} />
+          </div>
           <div className='dashboard__info-wrapper'>
             <DailyGainers />
             <DailyLosers />
           </div>
+        </div>
+      </section>
+      <section className='dashboard__social'>
+        <div className='dashboard__social-container'>
+          <DashboardCommentsList />
         </div>
       </section>
       <Footer />

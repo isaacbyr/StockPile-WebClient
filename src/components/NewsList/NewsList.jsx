@@ -14,7 +14,7 @@ class NewsList extends Component {
   fetchData = () => {
     axios
       .get(
-        `https://api.polygon.io/v2/reference/news?ticker=${this.props.ticker}&order=desc&limit=6&sort=published_utc&apiKey=g3B6V1o8p6eb1foQLIPYHI46hrnq8Sw1`
+        `https://api.polygon.io/v2/reference/news?ticker=${this.props.ticker}&order=desc&limit=15&sort=published_utc&apiKey=g3B6V1o8p6eb1foQLIPYHI46hrnq8Sw1`
       )
       .then((response) => {
         console.log(response.data.results)

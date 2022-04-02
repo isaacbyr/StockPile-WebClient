@@ -6,10 +6,18 @@ const DaileyItem = ({ ticker, price, percentChanged }) => {
   return (
     <div className='dailyItem'>
       <Link to={`/portfoliopro/${ticker}`} className='dailyItem__link'>
-        <p className='dailyItem__item'>{ticker}</p>
+        <p
+          className={percentChanged < 0 ? 'dailyItem__red' : 'dailyItem__green'}
+        >
+          {ticker}
+        </p>
       </Link>
-      <p className='dailyItem__item'>{price}</p>
-      <p className='dailyItem__item'>{percentChanged}</p>
+      <p className={percentChanged < 0 ? 'dailyItem__red' : 'dailyItem__green'}>
+        {price}
+      </p>
+      <p className={percentChanged < 0 ? 'dailyItem__red' : 'dailyItem__green'}>
+        {percentChanged}
+      </p>
     </div>
   )
 }
