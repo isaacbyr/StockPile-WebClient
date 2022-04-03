@@ -44,4 +44,9 @@
     overflow: hidden;
     overflow-y: scroll;
   }
+
+  &__empty {
+    text-align: center;
+    margin-top: 2rem;
+  }
 }

@@ -32,7 +32,7 @@ const PortfolioList = ({ portfolioStocks }) => {
                 )
               })
             ) : (
-              <h2>Loading</h2>
+              <h2 className='portfolio__empty'>No Portfolio Stocks</h2>
             )}
           </div>
         </div>

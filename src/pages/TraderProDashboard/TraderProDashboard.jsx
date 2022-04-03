@@ -6,13 +6,13 @@ import Footer from '../../components/Footer/Footer'
 import axios from 'axios'
 import Watchlist from '../../components/Watchlist/Watchlist'
 import PortfolioList from '../../components/PortfolioList/PortfolioList'
-import TransactionList from '../../components/TransactionList/TransactionList'
-import RealizedPL from '../../components/RealizedPL/RealizedPL'
 import AccountHeader from '../../components/AccountHeader/AccountHeader'
 import './TraderProDashboard.scss'
 import TraderPortfolioOverview from '../../components/TraderPortfolioOverview/TraderPortfolioOverview'
 import TraderAccountNumHoldings from '../../components/TraderAccountNumHoldings/TraderAccountNumHoldings'
 import TraderAccountPieChart from '../../components/TraderAccountPieChart/TraderAccountPieChart'
+import TraderRealizedPL from '../../components/TraderRealizedPL/TraderRealizedPL'
+import TraderAccountTransactionList from '../../components/TraderAccountTransactionList/TraderAccountTransactionList'
 
 class TraderProDashboard extends Component {
   state = {
@@ -25,7 +25,7 @@ class TraderProDashboard extends Component {
 
   fetchPortfolioStock = () => {
     axios
-      .get('http://localhost:44317/api/portfolio')
+      .get('http://localhost:44317/api/tradesportfolio')
       .then((response) => {
         console.log(response)
         var data = response.data
@@ -112,11 +112,7 @@ class TraderProDashboard extends Component {
           <div className='traderdashboard-wrapper middle'>
             <div className='traderdashboard-container middle'>
               <div className='traderdashboard__tablet-first'>
-                {this.state.portfolioStocks.length > 0 ? (
-                  <PortfolioList portfolioStocks={this.state.portfolioStocks} />
-                ) : (
-                  <h2>Loading</h2>
-                )}
+                <PortfolioList portfolioStocks={this.state.portfolioStocks} />
               </div>
               <div className='portfoliodashboard__tablet-second'>
                 <Watchlist />
@@ -126,8 +122,8 @@ class TraderProDashboard extends Component {
 
           <div className='portfoliodashboard-wrapper'>
             <div className='portfoliodashboard-container'>
-              <TransactionList />
-              <RealizedPL />
+              <TraderAccountTransactionList />
+              <TraderRealizedPL />
             </div>
           </div>
         </section>
