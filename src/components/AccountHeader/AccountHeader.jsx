@@ -18,7 +18,9 @@ const AccountHeader = () => {
           </Link>
           <Link className='dashboard__header--link'>TraderPro Buy/Sell</Link>
           <Link className='dashboard__header--link'>TraderPro Dashboard</Link>
-          <Link className='dashboard__header--link'>Social Dashboard</Link>
+          <Link to={'/social'} className='dashboard__header--link'>
+            Social Dashboard
+          </Link>
         </div>
       </div>
     </section>
