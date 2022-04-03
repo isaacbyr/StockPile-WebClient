@@ -1,0 +1,128 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.traderpro {
+  @include display-flex(column, center, center);
+
+  &__header-wrapper {
+    width: 100%;
+    @include max-width;
+    @include display-flex(row, center, center);
+  }
+
+  &__header {
+    color: $Primary-Dark-Font;
+    font-size: 3rem;
+    margin: 2rem 0 0 0;
+    padding: 0 16px;
+    width: 90%;
+    text-align: center;
+
+    @include tablet {
+      padding: 0 36px;
+      margin: 3rem 0 0 0;
+    }
+  }
+
+  &__header--img {
+    margin: 2rem 0 0 0;
+    @include tablet {
+      margin: 3rem 0 0 0;
+    }
+  }
+
+  &-container {
+    width: 100%;
+    @include desktop {
+    }
+  }
+
+  &__chart-container {
+    @include max-width;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 2px solid $Primary-Dark-Font;
+    box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
+    // margin: 0 1rem 1rem 1rem;
+    margin: 1rem;
+
+    @include tablet {
+      width: 95%;
+      //margin: 0 0 2.25rem 0;
+      padding: 2.25rem 2.25rem 1.5rem 2.25rem;
+    }
+    @include desktop {
+    }
+  }
+
+  &__chart-wrapper {
+    @include desktop {
+      margin: 0 0 2.25rem 0;
+    }
+  }
+
+  &__info-wrapper {
+    background-color: $Primary-Dark-Backgronund;
+  }
+
+  &__info-container {
+    @include max-width;
+    padding: 1rem 1rem;
+    @include tablet {
+      padding: 0 2.25rem;
+      @include display-flex(row, space-between, center);
+    }
+  }
+
+  &__position {
+    margin: 1rem;
+    border-radius: 4px;
+    background-color: white;
+    width: 95%;
+    @include tablet {
+      margin: 2.25rem;
+      width: 48%;
+    }
+  }
+  &__transactions {
+    margin: 1rem;
+    border-radius: 4px;
+    background-color: white;
+    width: 95%;
+    @include tablet {
+      margin: 2.25rem;
+      width: 48%;
+    }
+  }
+
+  &__news {
+  }
+
+  &__news-wrapper {
+    @include max-width;
+    padding: 1rem 1rem;
+    @include tablet {
+      padding: 0 2.25rem;
+      @include display-flex(row, space-between, flex-start);
+    }
+  }
+  &__articles {
+    margin: 1rem;
+    border-radius: 4px;
+    background-color: white;
+    @include tablet {
+      margin: 2.25rem;
+      width: 60%;
+    }
+  }
+  &__comments {
+    margin: 1rem;
+    border-radius: 4px;
+    background-color: white;
+    @include tablet {
+      margin: 2.25rem;
+      width: 40%;
+    }
+  }
+}

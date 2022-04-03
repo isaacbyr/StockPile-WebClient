@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import TransactionItem from '../TransactionItem/TransactionItem'
-import './TransactionList.scss'
+import TraderTransactionItem from '../TraderTransactionItem/TraderTransactionItem'
+import './TraderTransactionList.scss'
 import axios from 'axios'
 import uuid from 'react-uuid'
 
-class TransactionList extends Component {
+class TraderTransactionList extends Component {
   state = {
     transactions: [],
   }
 
   componentDidMount() {
     axios
-      .get('http://localhost:44317/api/transaction')
+      .get('http://localhost:44317/api/tradetransaction/today')
       .then((response) => {
         this.setState({ transactions: response.data })
       })
@@ -23,21 +23,20 @@ class TransactionList extends Component {
   render() {
     return (
       <>
-        <div className='transactions'>
-          <h2 className='transactions__header'>Transactions</h2>
+        <div className='traderTransactions'>
+          <h2 className='traderTransactions__header'>Transactions</h2>
           <div className='transactions__container'>
-            <div className='transactions__table'>
-              <p className='transactions__table--header'>Date</p>
-              <p className='transactions__table--header'>Ticker</p>
-              <p className='transactions__table--header'>Shares</p>
-              <p className='transactions__table--header'>Buy/Sell</p>
-              <p className='transactions__table--header'>Price</p>
+            <div className='traderTransactions__table'>
+              <p className='traderTransactions__table--header'>Ticker</p>
+              <p className='traderTransactions__table--header'>Shares</p>
+              <p className='traderTransactions__table--header'>Buy/Sell</p>
+              <p className='traderTransactions__table--header'>Price</p>
             </div>
-            <div className='transactions__list'>
+            <div className='traderTransactions__list'>
               {this.state.transactions.length > 0 ? (
                 this.state.transactions.map((transaction) => {
                   return (
-                    <TransactionItem
+                    <TraderTransactionItem
                       key={uuid()}
                       ticker={transaction.Ticker}
                       shares={transaction.Shares}
@@ -59,4 +58,4 @@ class TransactionList extends Component {
   }
 }
 
-export default TransactionList
+export default TraderTransactionList

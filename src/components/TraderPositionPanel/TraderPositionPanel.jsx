@@ -1,9 +1,9 @@
 import { Component } from 'react'
 import React from 'react'
 import axios from 'axios'
-import './PositionPanel.scss'
+import './TraderPositionPanel.scss'
 
-class PositionPanel extends Component {
+class TraderPositionPanel extends Component {
   state = {
     accountBalance: 0,
     ticker: '',
@@ -25,12 +25,12 @@ class PositionPanel extends Component {
     console.log('here')
     var options = {
       method: 'GET',
-      url: 'http://localhost:44317/api/useraccount',
+      url: 'http://localhost:44317/api/useraccount/tradesbalance',
     }
     axios
       .request(options)
       .then((response) => {
-        this.setState({ accountBalance: response.data.AccountBalance })
+        this.setState({ accountBalance: response.data })
       })
       .catch((err) => {
         console.log(err)
@@ -41,13 +41,13 @@ class PositionPanel extends Component {
     console.log('here')
 
     axios
-      .get(`http://localhost:44317/api/portfolio/${this.props.ticker}`)
+      .get(`http://localhost:44317/api/tradesportfolio/${this.props.ticker}`)
       .then((response) => {
         if (response.data != null) {
           var pl =
             (this.props.price - response.data.AveragePrice) *
               response.data.Shares ==
-            null
+            NaN
               ? 0
               : (this.props.price - response.data.AveragePrice) *
                 response.data.Shares
@@ -94,10 +94,7 @@ class PositionPanel extends Component {
     }
 
     axios
-      .put(
-        'http://localhost:44317/api/useraccount/updatebalance/portfolio',
-        data
-      )
+      .put('http://localhost:44317/api/useraccount/updatebalance/trades', data)
       .then((response) => {
         console.log(response)
       })
@@ -116,7 +113,7 @@ class PositionPanel extends Component {
     }
 
     axios
-      .post('http://localhost:44317/api/transaction', transaction)
+      .post('http://localhost:44317/api/tradetransaction', transaction)
       .then((response) => {
         console.log(response)
       })
@@ -133,7 +130,7 @@ class PositionPanel extends Component {
 
     if (this.state.currentPositionShares == 0) {
       axios
-        .post('http://localhost:44317/api/portfolio', stock)
+        .post('http://localhost:44317/api/tradesportfolio', stock)
         .then((response) => {
           console.log(response)
 
@@ -147,7 +144,7 @@ class PositionPanel extends Component {
         })
     } else {
       axios
-        .put('http://localhost:44317/api/portfolio/buy', stock)
+        .put('http://localhost:44317/api/tradesportfolio/buy', stock)
         .then((response) => {
           console.log(response)
 
@@ -245,4 +242,4 @@ class PositionPanel extends Component {
   }
 }
 
-export default PositionPanel
+export default TraderPositionPanel

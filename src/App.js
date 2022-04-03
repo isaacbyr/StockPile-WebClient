@@ -4,6 +4,7 @@ import Home from './pages/Home/Home'
 import FeaturesPage from './pages/FeaturesPage/FeaturesPage'
 import PricingPage from './pages/PricingPage/PricingPage'
 import PortfolioProPage from './pages/PortfolioProPage/PortfolioProPage'
+import TraderProPage from './pages/TraderProPage/TraderProPage'
 import PortfolioProDashboard from './pages/PortfolioProDashboard/PortfolioProDashboard'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Social from './pages/Social/Social'
@@ -18,6 +19,8 @@ function App() {
           <Route path='/pricing' component={PricingPage} />
           <Route path='/portfoliopro/:id' component={PortfolioProPage} />
           <Route path='/portfoliopro' component={PortfolioProPage} />
+          <Route path='/traderpro/:id' component={TraderProPage} />
+          <Route path='/traderpro' component={TraderProPage} />
           <Route
             path='/portfolioprodashboard'
             component={PortfolioProDashboard}
