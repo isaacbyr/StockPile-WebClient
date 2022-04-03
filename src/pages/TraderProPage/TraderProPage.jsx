@@ -39,7 +39,11 @@ class TraderProPage extends Component {
 
   timestampToDate = (timestamp) => {
     var convDate = new Date(timestamp * 1000)
-    return convDate.toLocaleTimeString()
+    if (this.state.range == '1d' || this.state.range == '5d') {
+      return convDate.toLocaleTimeString()
+    } else {
+      return convDate.toLocaleDateString()
+    }
   }
 
   componentDidMount() {

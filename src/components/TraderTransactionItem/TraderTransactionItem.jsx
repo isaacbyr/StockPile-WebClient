@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TraderTransactionItem = ({ date, ticker, shares, buy, price }) => {
+const TraderTransactionItem = ({ ticker, shares, buy, price }) => {
   return (
     <div className='transactionItem'>
       <p className='transactionItem__item'>{ticker}</p>

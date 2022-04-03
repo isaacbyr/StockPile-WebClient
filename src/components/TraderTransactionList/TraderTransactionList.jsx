@@ -40,7 +40,6 @@ class TraderTransactionList extends Component {
                       key={uuid()}
                       ticker={transaction.Ticker}
                       shares={transaction.Shares}
-                      date={transaction.Date}
                       price={transaction.Price}
                       buy={transaction.Buy}
                       sell={transaction.Sell}
@@ -48,7 +47,9 @@ class TraderTransactionList extends Component {
                   )
                 })
               ) : (
-                <h2>Loading</h2>
+                <h2 className='traderTransactions__empty'>
+                  No Transactions Today
+                </h2>
               )}
             </div>
           </div>

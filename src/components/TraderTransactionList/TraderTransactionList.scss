@@ -31,4 +31,10 @@
     overflow: hidden;
     overflow-y: scroll;
   }
+
+  &__empty {
+    color: $Primary-Dark-Font;
+    font-size: 1.2rem;
+    text-align: center;
+  }
 }

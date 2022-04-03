@@ -167,7 +167,7 @@ class TraderPositionPanel extends Component {
       this.setState({ price: this.props.price })
       this.setState({
         profitLoss:
-          (this.props.price - this.state.AveragePrice) * this.state.Shares,
+          (this.props.price - this.state.averagePrice) * this.state.Shares,
       })
     }
   }
