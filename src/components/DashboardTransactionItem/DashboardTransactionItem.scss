@@ -1,0 +1,42 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.dashTransactionItem {
+  color: $Primary-Dark-Font;
+  @include display-flex(row, space-between, flex-start);
+  width: 100%;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e1e1e1;
+
+  &__img-wrapper {
+    width: 10%;
+  }
+
+  &__img {
+    background-color: #e1e1e1;
+    border-radius: 50%;
+    display: block;
+    height: 2.25rem;
+    width: 2.25rem;
+    margin-top: 0.5rem;
+  }
+
+  &__text-wrapper {
+    width: 90%;
+  }
+
+  &__text--header {
+    @include display-flex(row, space-between, center);
+  }
+
+  &__username {
+    color: #4061ba;
+  }
+
+  &__date {
+  }
+
+  &__text {
+    margin: 0;
+  }
+}
