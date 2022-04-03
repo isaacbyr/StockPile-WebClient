@@ -1,0 +1,29 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.social {
+  @include max-width;
+
+  &__header {
+    text-align: center;
+    margin: 2rem;
+    color: $Primary-Dark-Font;
+    width: 90%;
+    text-align: center;
+    text-decoration: underline;
+    @include tablet {
+      margin: 3rem 0 0 0;
+      font-size: 3rem;
+    }
+  }
+
+  &-wrapper {
+    margin: 2.25rem 0;
+
+    @include tablet {
+      @include display-flex(row, space-between, flex-start);
+      padding: 0 2.25rem;
+      margin: 2.25rem 0;
+    }
+  }
+}

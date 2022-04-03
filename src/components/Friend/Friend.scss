@@ -1,0 +1,25 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.friend {
+  color: $Primary-Dark-Font;
+  @include display-flex(row, space-between, flex-start);
+  width: 100%;
+
+  &__img-wrapper {
+    width: 10%;
+  }
+
+  &__img {
+    background-color: #e1e1e1;
+    border-radius: 50%;
+    display: block;
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  &__text-wrapper {
+    width: 85%;
+    @include display-flex(row, space-between, center);
+  }
+}

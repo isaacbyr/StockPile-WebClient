@@ -6,6 +6,7 @@ import PricingPage from './pages/PricingPage/PricingPage'
 import PortfolioProPage from './pages/PortfolioProPage/PortfolioProPage'
 import PortfolioProDashboard from './pages/PortfolioProDashboard/PortfolioProDashboard'
 import Dashboard from './pages/Dashboard/Dashboard'
+import Social from './pages/Social/Social'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             component={PortfolioProDashboard}
           />
           <Route path='/dashboard' component={Dashboard} />
+          <Route path='/social' component={Social} />
         </Switch>
       </Router>
     </>
