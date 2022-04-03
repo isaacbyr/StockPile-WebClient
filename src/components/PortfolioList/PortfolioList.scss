@@ -39,4 +39,9 @@
     margin: 0;
     text-align: center;
   }
+  &__list {
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
 }

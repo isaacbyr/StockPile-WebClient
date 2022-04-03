@@ -107,7 +107,7 @@ class PortfolioProPage extends Component {
         <Navbar />
         <section className='portfoliopro'>
           <div className='portfoliopro__header-wrapper'>
-            <Link to={'/home'}>
+            <Link to={'/dashboard'}>
               <img src={BackArrow} />
             </Link>
             <h1 className='portfoliopro__header'>PortfolioPro</h1>

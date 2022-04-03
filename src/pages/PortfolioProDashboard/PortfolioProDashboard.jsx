@@ -94,7 +94,7 @@ class PortfolioProDashboard extends Component {
         <Navbar />
         <section className='portfoliodashboard'>
           <div className='portfoliodashboard__header-wrapper'>
-            <Link to={'/home'}>
+            <Link to={'/dashboard'}>
               <img src={BackArrow} />
             </Link>
             <h1 className='portfoliodashboard__header'>

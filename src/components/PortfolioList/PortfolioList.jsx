@@ -17,22 +17,24 @@ const PortfolioList = ({ portfolioStocks }) => {
           <p className='portfolio__table--item'>Profit/Loss</p>
         </div>
         <div>
-          {portfolioStocks.length > 0 ? (
-            portfolioStocks.map((stock) => {
-              return (
-                <PortfolioItem
-                  key={uuid()}
-                  ticker={stock.Ticker}
-                  shares={stock.Shares}
-                  averagePrice={stock.AveragePrice}
-                  marketPrice={stock.MarketPrice}
-                  profitLoss={stock.ProfitLoss}
-                />
-              )
-            })
-          ) : (
-            <h2>Loading</h2>
-          )}
+          <div className='portfolio__list'>
+            {portfolioStocks.length > 0 ? (
+              portfolioStocks.map((stock) => {
+                return (
+                  <PortfolioItem
+                    key={uuid()}
+                    ticker={stock.Ticker}
+                    shares={stock.Shares}
+                    averagePrice={stock.AveragePrice}
+                    marketPrice={stock.MarketPrice}
+                    profitLoss={stock.ProfitLoss}
+                  />
+                )
+              })
+            ) : (
+              <h2>Loading</h2>
+            )}
+          </div>
         </div>
       </section>
     </>

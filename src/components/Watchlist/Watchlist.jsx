@@ -85,20 +85,22 @@ class Watchlist extends Component {
             <p className='watchlist__table--item'>Daily %</p>
           </div>
           <div>
-            {this.state.watchlistStocks.length > 0 ? (
-              this.state.watchlistStocks.map((stock) => {
-                return (
-                  <WatchlistItem
-                    key={uuid()}
-                    ticker={stock.Ticker}
-                    marketPrice={stock.MarketPrice}
-                    percentChanged={stock.PercentChanged}
-                  />
-                )
-              })
-            ) : (
-              <h2>Loading</h2>
-            )}
+            <div className='watchlist__list'>
+              {this.state.watchlistStocks.length > 0 ? (
+                this.state.watchlistStocks.map((stock) => {
+                  return (
+                    <WatchlistItem
+                      key={uuid()}
+                      ticker={stock.Ticker}
+                      marketPrice={stock.MarketPrice}
+                      percentChanged={stock.PercentChanged}
+                    />
+                  )
+                })
+              ) : (
+                <h2>Loading</h2>
+              )}
+            </div>
           </div>
         </section>
       </>

@@ -34,7 +34,7 @@ class DailyGainers extends Component {
         }
         stocks.push(item)
       })
-      this.setState({ gainers: stocks.slice(0, 8) })
+      this.setState({ gainers: stocks })
     })
   }
 
@@ -47,20 +47,22 @@ class DailyGainers extends Component {
           <p className='dailyGainers__table--item'>Price</p>
           <p className='dailyGainers__table--item'>% </p>
         </div>
-        {this.state.gainers.length > 0 ? (
-          this.state.gainers.map((stock) => {
-            return (
-              <DaileyItem
-                key={uuid()}
-                ticker={stock.ticker}
-                price={stock.price}
-                percentChanged={stock.percentChanged}
-              />
-            )
-          })
-        ) : (
-          <h2>Loading</h2>
-        )}
+        <div className='dailyGainers__list'>
+          {this.state.gainers.length > 0 ? (
+            this.state.gainers.map((stock) => {
+              return (
+                <DaileyItem
+                  key={uuid()}
+                  ticker={stock.ticker}
+                  price={stock.price}
+                  percentChanged={stock.percentChanged}
+                />
+              )
+            })
+          ) : (
+            <h2>Loading</h2>
+          )}
+        </div>
       </div>
     )
   }
