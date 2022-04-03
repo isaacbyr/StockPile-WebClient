@@ -40,9 +40,12 @@ class PortfolioProPage extends Component {
 
   timestampToDate = (timestamp) => {
     var convDate = new Date(timestamp * 1000)
-    return convDate.toLocaleTimeString()
+    if (this.state.range == '1d' || this.state.range == '5d') {
+      return convDate.toLocaleTimeString()
+    } else {
+      return convDate.toLocaleDateString()
+    }
   }
-
   componentDidMount() {
     window.scrollTo(0, 0)
     const stockTicker = this.props.match.params.id
@@ -151,11 +154,12 @@ class PortfolioProPage extends Component {
                           placeholder='Range'
                           value={this.state.range}
                         >
-                          <option value={'6mo'}>6mo</option>
-                          <option value={'3mo'}>3mo</option>
-                          <option value={'1mo'}>1mo</option>
-                          <option value={'5d'}>5d</option>
                           <option value={'1d'}>1d</option>
+                          <option value={'5d'}>5d</option>
+                          <option value={'1mo'}>1mo</option>
+                          <option value={'3mo'}>3mo</option>
+                          <option value={'6mo'}>6mo</option>
+                          <option value={'1y'}>1y</option>
                         </select>
                       </div>
                       <div className='chart-header__search-container'>
@@ -172,11 +176,11 @@ class PortfolioProPage extends Component {
                           placeholder='Interval'
                           value={this.state.interval}
                         >
-                          <option value={'1d'}>1d</option>
-                          <option value={'1h'}>1h</option>
-                          <option value={'15m'}>15m</option>
-                          <option value={'5m'}>5m</option>
                           <option value={'1m'}>1m</option>
+                          <option value={'5m'}>5m</option>
+                          <option value={'15m'}>15m</option>
+                          <option value={'1h'}>1h</option>
+                          <option value={'1d'}>1d</option>
                         </select>
                       </div>
                       <button type='submit' className='chart-header__button'>

@@ -157,6 +157,8 @@ class TraderPositionPanel extends Component {
           console.log(err)
         })
     }
+
+    this.props.updateId += 1
   }
 
   componentDidUpdate(prevProps) {

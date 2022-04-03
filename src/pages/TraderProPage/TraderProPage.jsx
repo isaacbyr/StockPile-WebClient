@@ -21,6 +21,7 @@ class TraderProPage extends Component {
     chartData: [],
     maxChart: 5,
     minChart: 0,
+    updateId: 0,
   }
 
   handleChange = (e) => {
@@ -154,11 +155,12 @@ class TraderProPage extends Component {
                           placeholder='Range'
                           value={this.state.range}
                         >
-                          <option value={'6mo'}>6mo</option>
-                          <option value={'3mo'}>3mo</option>
-                          <option value={'1mo'}>1mo</option>
-                          <option value={'5d'}>5d</option>
                           <option value={'1d'}>1d</option>
+                          <option value={'5d'}>5d</option>
+                          <option value={'1mo'}>1mo</option>
+                          <option value={'3mo'}>3mo</option>
+                          <option value={'6mo'}>6mo</option>
+                          <option value={'1y'}>1y</option>
                         </select>
                       </div>
                       <div className='chart-header__search-container'>
@@ -204,12 +206,13 @@ class TraderProPage extends Component {
               <div className='traderpro__info-container'>
                 <div className='traderpro__position'>
                   <TraderPositionPanel
+                    updatedId={this.state.updateId}
                     ticker={this.state.ticker}
                     price={this.state.price}
                   />
                 </div>
                 <div className='traderpro__transactions'>
-                  <TraderTransactionList />
+                  <TraderTransactionList key={this.state.updateId} />
                 </div>
               </div>
             </div>
