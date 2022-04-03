@@ -43,22 +43,26 @@ class PortfolioOverview extends Component {
           <div className='portfolioOverview-container'>
             <h2 className='portfolioOverview__header'>Overview</h2>
             <table className='portfolioOverview__table'>
-              <tr>
-                <th>Starting Amount</th>
-                <td>100000</td>
-              </tr>
-              <tr>
-                <th>Account Balance</th>
-                <td>{this.state.accountBalance}</td>
-              </tr>
-              <tr>
-                <th>Unrealized PL</th>
-                <td>{this.props.unrealizedPL.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <th>Realized PL</th>
-                <td>{this.state.realizedPL}</td>
-              </tr>
+              <div className='portfolioOverview__table--first'>
+                <tr>
+                  <th>Starting Amount</th>
+                  <td>100000</td>
+                </tr>
+                <tr>
+                  <th>Account Balance</th>
+                  <td>{this.state.accountBalance}</td>
+                </tr>
+              </div>
+              <div className='portfolioOverview__table--second'>
+                <tr>
+                  <th>Unrealized PL</th>
+                  <td>{this.props.unrealizedPL.toFixed(2)}</td>
+                </tr>
+                <tr>
+                  <th>Realized PL</th>
+                  <td>{this.state.realizedPL}</td>
+                </tr>
+              </div>
             </table>
           </div>
         </section>

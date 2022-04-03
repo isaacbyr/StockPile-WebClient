@@ -7,7 +7,7 @@ const AccountHeader = () => {
     <section className='dashboard__header'>
       <div className='dashboard__header-container'>
         <div className='dashboard__header-wrapper'>
-          <Link className='dashboard__header--link' to={'/portfoliopro'}>
+          <Link className='dashboard__header--link' to={'/portfoliopro/AAPL'}>
             PortfolioPro Buy/Sell
           </Link>
           <Link

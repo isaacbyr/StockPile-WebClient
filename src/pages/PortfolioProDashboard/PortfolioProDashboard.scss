@@ -28,19 +28,22 @@
     }
   }
   &-wrapper {
+    @include max-width;
     @include tablet {
       padding: 0 36px;
       @include display-flex(row, space-between, flex-start);
     }
 
     &.middle {
-      margin: 1rem 0;
-      @include tablet {
-        margin: 2.25rem 0;
-      }
-      @include desktop {
-        @include display-flex(row, space-between, flex-start);
-      }
+      @include max-width-tablet;
+
+      // margin: 1rem 0;
+      // @include tablet {
+      //   margin: 2.25rem 0;
+      // }
+      // @include desktop {
+      //   @include display-flex(row, space-between, flex-start);
+      // }
     }
   }
   &-container {
@@ -53,8 +56,11 @@
       @include display-flex(row, space-between, flex-start);
     }
 
+    @include desktop {
+      padding: 0;
+    }
+
     &.middle {
-      @include max-width-tablet;
       @include display-flex(column, center, center);
 
       @include tablet {
