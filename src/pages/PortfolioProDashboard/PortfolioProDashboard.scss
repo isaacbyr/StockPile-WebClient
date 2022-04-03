@@ -44,9 +44,9 @@
     }
   }
   &-container {
-    @include max-width;
     width: 100%;
     margin: 1rem 0;
+    padding: 0 16px;
     @include display-flex(column, center, center);
 
     @include tablet {
@@ -54,7 +54,12 @@
     }
 
     &.middle {
-      @include display-flex(column, space-around, center);
+      @include max-width-tablet;
+      @include display-flex(column, center, center);
+
+      @include tablet {
+        @include display-flex(row, space-between, flex-start);
+      }
       @include desktop {
         @include display-flex(row, space-between, flex-start);
       }
@@ -64,11 +69,12 @@
   &__tablet-first {
     width: 100%;
     @include tablet {
+      width: 48%;
       @include display-flex(row, center, center);
       @include max-width-tablet;
     }
     @include desktop {
-      width: 40%;
+      width: 48%;
       @include display-flex(row, flex-start, center);
       margin: 0;
     }
@@ -77,11 +83,13 @@
   &__tablet-second {
     width: 100%;
     @include tablet {
+      width: 48%;
+
       @include display-flex(row, space-around, flex-start);
       @include max-width-tablet;
     }
     @include desktop {
-      width: 55%;
+      width: 48%;
       margin: 0;
     }
   }

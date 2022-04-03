@@ -19,7 +19,9 @@ const AccountHeader = () => {
           <Link to='/traderpro' className='dashboard__header--link'>
             TraderPro Buy/Sell
           </Link>
-          <Link className='dashboard__header--link'>TraderPro Dashboard</Link>
+          <Link to={'/traderprodashboard'} className='dashboard__header--link'>
+            TraderPro Dashboard
+          </Link>
           <Link to={'/social'} className='dashboard__header--link'>
             Social Dashboard
           </Link>

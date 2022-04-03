@@ -106,6 +106,8 @@ class PortfolioProDashboard extends Component {
             </h1>
           </div>
           <AccountHeader />
+          <PortfolioOverview unrealizedPL={this.state.unRealizedPL} />
+
           <div className='portfoliodashboard-wrapper'>
             <div className='portfoliodashboard-container'>
               <AccountNumHoldings />
@@ -123,7 +125,6 @@ class PortfolioProDashboard extends Component {
               </div>
               <div className='portfoliodashboard__tablet-second'>
                 <Watchlist />
-                <PortfolioOverview unrealizedPL={this.state.unRealizedPL} />
               </div>
             </div>
           </div>
