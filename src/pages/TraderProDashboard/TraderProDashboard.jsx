@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 import BackArrow from '../../assets/Icons/back_arrow_blue.png'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
-import AccountPieChart from '../../components/AccountPieChart/AccountPieChart'
 import axios from 'axios'
 import Watchlist from '../../components/Watchlist/Watchlist'
 import PortfolioList from '../../components/PortfolioList/PortfolioList'
-import AccountNumHoldings from '../../components/AccountNumHoldings/AccountNumHoldings'
 import TransactionList from '../../components/TransactionList/TransactionList'
 import RealizedPL from '../../components/RealizedPL/RealizedPL'
-import PortfolioOverview from '../../components/PortfolioOverview/PortfolioOverview'
 import AccountHeader from '../../components/AccountHeader/AccountHeader'
 import './TraderProDashboard.scss'
+import TraderPortfolioOverview from '../../components/TraderPortfolioOverview/TraderPortfolioOverview'
+import TraderAccountNumHoldings from '../../components/TraderAccountNumHoldings/TraderAccountNumHoldings'
+import TraderAccountPieChart from '../../components/TraderAccountPieChart/TraderAccountPieChart'
 
 class TraderProDashboard extends Component {
   state = {
@@ -101,12 +101,12 @@ class TraderProDashboard extends Component {
             <h1 className='traderdashboard__header'>TraderPro Dashboard</h1>
           </div>
           <AccountHeader />
-          <PortfolioOverview unrealizedPL={this.state.unRealizedPL} />
+          <TraderPortfolioOverview unrealizedPL={this.state.unRealizedPL} />
 
           <div className='traderdashboard-wrapper'>
             <div className='traderdashboard-container'>
-              <AccountNumHoldings />
-              <AccountPieChart />
+              <TraderAccountNumHoldings />
+              <TraderAccountPieChart />
             </div>
           </div>
           <div className='traderdashboard-wrapper middle'>

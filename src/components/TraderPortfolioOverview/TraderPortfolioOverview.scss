@@ -1,0 +1,100 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.traderOverview {
+  @include max-width;
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  &-container {
+    padding: 16px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $Primary-Dark-Backgronund;
+    color: white;
+    border: 1px solid White;
+    box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
+    margin: 0.5rem 0;
+    @include display-flex(column, center, center);
+
+    @include tablet {
+      width: 100%;
+      padding: 2rem;
+    }
+    @include desktop {
+      @include display-flex(row, flex-start, center);
+
+      width: 100%;
+      padding: 2rem;
+      margin: 0 0 1rem 0;
+    }
+  }
+
+  &__header {
+    width: 100%;
+    @include desktop {
+      width: 20%;
+    }
+    color: White;
+    text-align: center;
+    border-bottom: 1px solid White;
+    padding-bottom: 0.5rem;
+  }
+
+  &__table {
+    width: 75%;
+    @include display-flex(column, flex-start, flex-start);
+    @include tablet {
+      @include display-flex(row, space-around, center);
+    }
+
+    @include desktop {
+      @include display-flex(row, space-between, center);
+      margin-left: 2rem;
+    }
+  }
+
+  &__table--first {
+    @include display-flex(column, flex-start, flex-start);
+
+    @include desktop {
+      @include display-flex(row, space-around, center);
+    }
+  }
+
+  &__table--second {
+    @include display-flex(column, flex-start, flex-start);
+
+    @include desktop {
+      @include display-flex(row, space-around, center);
+      margin-right: 5rem;
+    }
+  }
+
+  th {
+    text-align: left;
+    margin-right: 0.2rem;
+    @include tablet {
+      text-align: left;
+    }
+    @include desktop {
+      text-align: left;
+    }
+  }
+  tr {
+    //width: 100%;
+    text-align: left;
+    @include display-flex(row, flex-start, flex-start);
+
+    @include tablet {
+      @include display-flex(row, flex-start, flex-start);
+    }
+    @include desktop {
+      @include display-flex(row, flex-start, center);
+      margin-right: 0.8rem;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.traderaccountpie {
+  width: 100%;
+  //padding: 0 16px;
+
+  @include tablet {
+    width: 55%;
+    padding: 2rem;
+    height: 445px;
+    border-radius: 4px;
+    border: 1px solid $Primary-Dark-Font;
+    box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
+  }
+
+  &__header {
+    color: $Primary-Dark-Font;
+    text-align: center;
+  }
+
+  &__chart {
+    width: 95%;
+    margin: 0 16px;
+  }
+}
