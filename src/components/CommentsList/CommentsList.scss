@@ -14,9 +14,10 @@
 
   &__form {
     width: 100%;
+    margin: 0 0.5rem;
 
     &--input {
-      width: 77%;
+      width: 74%;
       border-radius: 4px;
       outline: $Primary-Dark-Font;
       height: 35px;
