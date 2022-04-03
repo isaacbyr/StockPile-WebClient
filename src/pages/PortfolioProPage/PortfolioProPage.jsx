@@ -10,6 +10,7 @@ import NewsList from '../../components/NewsList/NewsList'
 import CommentsList from '../../components/CommentsList/CommentsList'
 import Footer from '../../components/Footer/Footer'
 import axios from 'axios'
+import AccountHeader from '../../components/AccountHeader/AccountHeader'
 import './PortfolioProPage.scss'
 
 class PortfolioProPage extends Component {
@@ -108,10 +109,11 @@ class PortfolioProPage extends Component {
         <section className='portfoliopro'>
           <div className='portfoliopro__header-wrapper'>
             <Link to={'/dashboard'}>
-              <img src={BackArrow} />
+              <img src={BackArrow} className='portfoliopro__header--img' />
             </Link>
             <h1 className='portfoliopro__header'>PortfolioPro</h1>
           </div>
+          <AccountHeader />
           <div className='portfoliopro-container'>
             <div className='portfoliopro__chart-wrapper'>
               <div className='portfoliopro__chart-container'>

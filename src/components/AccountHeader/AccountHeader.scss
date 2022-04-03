@@ -1,0 +1,43 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.dashboard__header {
+  @include max-width;
+
+  &-container {
+    margin: 16px 0;
+    padding: 0 16px;
+
+    @include tablet {
+      margin: 1rem 0;
+      padding: 0 2.25rem;
+    }
+  }
+
+  &-wrapper {
+    margin: 1rem 0;
+    @include display-flex(column, flex-start, flex-start);
+
+    @include tablet {
+      @include display-flex(row, space-between, center);
+    }
+  }
+
+  &--link {
+    color: #22395d;
+    text-decoration: none;
+    margin: 0.2rem 0;
+    padding: 0 0.5rem;
+    border-bottom: 1px solid $Primary-Dark-Font;
+    transition: color 0.25s;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    &:hover {
+      color: #60daaa;
+      border-bottom: 1px solid #60daaa;
+    }
+  }
+}

@@ -16,8 +16,15 @@
     text-align: center;
     text-decoration: underline;
     @include tablet {
-      margin: 3rem;
+      margin: 3rem 0 0 0;
       font-size: 3rem;
+    }
+  }
+
+  &__header--img {
+    margin-top: 2rem;
+    @include tablet {
+      margin-top: 3rem;
     }
   }
   &-wrapper {

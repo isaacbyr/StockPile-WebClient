@@ -12,6 +12,7 @@ import TransactionList from '../../components/TransactionList/TransactionList'
 import RealizedPL from '../../components/RealizedPL/RealizedPL'
 import PortfolioOverview from '../../components/PortfolioOverview/PortfolioOverview'
 import axios from 'axios'
+import AccountHeader from '../../components/AccountHeader/AccountHeader'
 
 class PortfolioProDashboard extends Component {
   state = {
@@ -95,12 +96,16 @@ class PortfolioProDashboard extends Component {
         <section className='portfoliodashboard'>
           <div className='portfoliodashboard__header-wrapper'>
             <Link to={'/dashboard'}>
-              <img src={BackArrow} />
+              <img
+                src={BackArrow}
+                className='portfoliodashboard__header--img'
+              />
             </Link>
             <h1 className='portfoliodashboard__header'>
               PortfolioPro Dashboard
             </h1>
           </div>
+          <AccountHeader />
           <div className='portfoliodashboard-wrapper'>
             <div className='portfoliodashboard-container'>
               <AccountNumHoldings />

@@ -6,6 +6,7 @@
   color: $Primary-Dark-Font;
   @include tablet {
     padding: 0 36px;
+    margin: 2.25rem 0 0 0;
   }
   @include desktop {
     width: 49%;

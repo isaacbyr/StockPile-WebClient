@@ -67,7 +67,13 @@
     height: 2rem;
   }
 
+  &__trending--text {
+    color: $Primary-Dark-Font;
+    font-size: 16px;
+  }
+
   &__form-wrapper {
+    margin: 0 0.5rem;
     @include desktop {
       @include display-flex(row, space-between, center);
     }
