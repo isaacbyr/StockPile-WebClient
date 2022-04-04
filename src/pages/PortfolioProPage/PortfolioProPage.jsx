@@ -210,7 +210,11 @@ class PortfolioProPage extends Component {
                   />
                 </div>
                 <div className='portfoliopro__overview'>
-                  <CompanyOverview ticker={this.state.ticker} />
+                  {this.state.ticker == '' ? (
+                    <CompanyOverview ticker={this.props.match.params.id} />
+                  ) : (
+                    <CompanyOverview ticker={this.state.ticker} />
+                  )}
                 </div>
               </div>
             </div>

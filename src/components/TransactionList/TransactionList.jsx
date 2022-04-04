@@ -13,7 +13,8 @@ class TransactionList extends Component {
     axios
       .get('http://localhost:44317/api/transaction')
       .then((response) => {
-        this.setState({ transactions: response.data })
+        console.log(response)
+        this.setState({ transactions: response.data.reverse() })
       })
       .catch((err) => {
         console.log(err)

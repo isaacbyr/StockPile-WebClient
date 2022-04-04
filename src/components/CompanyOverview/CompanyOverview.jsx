@@ -32,6 +32,7 @@ class CompanyOverview extends Component {
       .request(options)
       .then((response) => {
         let data = response.data
+        console.log(data)
         this.setState({
           symbol: data.Symbol,
           sector: data.Sector,
@@ -53,9 +54,9 @@ class CompanyOverview extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.ticker != this.props.ticker) {
-      this.fetchData()
-    }
+    // if (prevProps.ticker != this.props.ticker) {
+    //   this.fetchData()
+    // }
   }
 
   render() {

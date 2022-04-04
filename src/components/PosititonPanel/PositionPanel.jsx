@@ -22,7 +22,6 @@ class PositionPanel extends Component {
   }
 
   loadAccountBalance = () => {
-    console.log('here')
     var options = {
       method: 'GET',
       url: 'http://localhost:44317/api/useraccount',
@@ -38,8 +37,6 @@ class PositionPanel extends Component {
   }
 
   loadPortfolioStock = () => {
-    console.log('here')
-
     axios
       .get(`http://localhost:44317/api/portfolio/${this.props.ticker}`)
       .then((response) => {
@@ -47,7 +44,7 @@ class PositionPanel extends Component {
           var pl =
             (this.props.price - response.data.AveragePrice) *
               response.data.Shares ==
-            null
+            NaN
               ? 0
               : (this.props.price - response.data.AveragePrice) *
                 response.data.Shares
@@ -83,8 +80,86 @@ class PositionPanel extends Component {
     if (e.nativeEvent.submitter.name == 'buy') {
       this.handleBuy()
     } else {
-      console.log('sell')
+      this.handleSell()
     }
+  }
+
+  handleSell = async () => {
+    //update transaction table
+    var transaction = {
+      Ticker: this.state.ticker,
+      Buy: true,
+      Price: this.state.price,
+      Sell: false,
+      Shares: this.state.newPositionShares,
+      Date: new Date(),
+    }
+    await axios
+      .post('http://localhost:44317/api/transaction', transaction)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    // update portfolio table
+    var stock = {
+      Ticker: this.state.ticker,
+      Price: this.state.price,
+      Shares: this.state.newPositionShares,
+    }
+
+    var realizedPL = 0
+    // if shares now equals current postion shares update and delete
+    if (this.state.currentPositionShares == this.state.newPositionShares) {
+      await axios
+        .put('http://localhost:44317/api/portfolio/delete', stock)
+        .then((response) => {
+          console.log(response)
+          realizedPL = response.data
+        })
+    } else {
+      await axios
+        .put('http://localhost:44317/api/portfolio/sell', stock)
+        .then((response) => {
+          console.log(response)
+          realizedPL = response.data
+        })
+    }
+    // update user account table, account balance and realizedgains
+    var amount = {
+      UserId: '',
+      Amount: this.state.cashAmount,
+      RealizedProfitLoss: realizedPL,
+    }
+    await axios
+      .put('http://localhost:44317/api/useraccount/sale', amount)
+      .then((response) => {
+        console.log(response)
+        this.setState({ AccountBalance: response.data })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    var realizedPLData = {
+      RealizedProfitLoss: realizedPL,
+      UserIdL: '',
+    }
+
+    //post profitloss
+    await axios
+      .post('http://localhost:44317/api/realizedPL', realizedPLData)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    // reload account balance
+    this.loadAccountBalance()
+    //load updated positonn
+    this.loadPortfolioStock()
   }
 
   handleBuy = () => {
@@ -168,9 +243,12 @@ class PositionPanel extends Component {
     }
     if (prevProps.price != this.props.price) {
       this.setState({ price: this.props.price })
+      var pl =
+        (this.props.price - this.state.averagePrice) * this.state.Shares == NaN
+          ? 0
+          : (this.props.price - this.state.averagePrice) * this.state.Shares
       this.setState({
-        profitLoss:
-          (this.props.price - this.state.averagePrice) * this.state.Shares,
+        profitLoss: pl.toFixed(2),
       })
     }
   }
