@@ -46,9 +46,14 @@ class TraderAccountNumHoldings extends Component {
   }
 
   componentDidMount() {
+    this.fetchData()
+  }
+
+  fetchData = () => {
     axios
       .get('http://localhost:44317/api/tradesportfolio/topholdings')
       .then((response) => {
+        console.log(response)
         let stocks = []
         let shares = []
         response.data.map((stock) => {
@@ -64,6 +69,7 @@ class TraderAccountNumHoldings extends Component {
         console.log(err)
       })
   }
+
   render() {
     return (
       <div className='tradernumholdings'>

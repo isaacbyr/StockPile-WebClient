@@ -244,9 +244,12 @@ class PositionPanel extends Component {
     if (prevProps.price != this.props.price) {
       this.setState({ price: this.props.price })
       var pl =
-        (this.props.price - this.state.averagePrice) * this.state.Shares == NaN
+        (this.props.price - this.state.averagePrice) *
+          this.state.currentPositionShares ==
+        NaN
           ? 0
-          : (this.props.price - this.state.averagePrice) * this.state.Shares
+          : (this.props.price - this.state.averagePrice) *
+            this.state.currentPositionShares
       this.setState({
         profitLoss: pl.toFixed(2),
       })

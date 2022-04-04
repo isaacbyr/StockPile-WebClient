@@ -83,8 +83,86 @@ class TraderPositionPanel extends Component {
     if (e.nativeEvent.submitter.name == 'buy') {
       this.handleBuy()
     } else {
-      console.log('sell')
+      this.handleSell()
     }
+  }
+
+  handleSell = async () => {
+    //update transaction table
+    var transaction = {
+      Ticker: this.state.ticker,
+      Buy: true,
+      Price: this.state.price,
+      Sell: false,
+      Shares: this.state.newPositionShares,
+      Date: new Date().toLocaleString(),
+    }
+    await axios
+      .post('http://localhost:44317/api/tradetransaction', transaction)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    // update portfolio table
+    var stock = {
+      Ticker: this.state.ticker,
+      Price: this.state.price,
+      Shares: this.state.newPositionShares,
+    }
+
+    var realizedPL = 0
+    // if shares now equals current postion shares update and delete
+    if (this.state.currentPositionShares == this.state.newPositionShares) {
+      await axios
+        .put('http://localhost:44317/api/tradesportfolio/delete', stock)
+        .then((response) => {
+          console.log(response)
+          realizedPL = response.data
+        })
+    } else {
+      await axios
+        .put('http://localhost:44317/api/tradesportfolio/sell', stock)
+        .then((response) => {
+          console.log(response)
+          realizedPL = response.data
+        })
+    }
+    // update user account table, account balance and realizedgains
+    var amount = {
+      UserId: '',
+      Amount: this.state.cashAmount,
+      RealizedProfitLoss: realizedPL,
+    }
+    await axios
+      .put('http://localhost:44317/api/useraccount/sale/trades', amount)
+      .then((response) => {
+        console.log(response)
+        this.setState({ AccountBalance: response.data })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    var realizedPLData = {
+      RealizedProfitLoss: realizedPL,
+      UserIdL: '',
+    }
+
+    //post profitloss
+    await axios
+      .post('http://localhost:44317/api/traderealizedPL', realizedPLData)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    // reload account balance
+    this.loadAccountBalance()
+    //load updated positonn
+    this.loadPortfolioStock()
   }
 
   handleBuy = () => {
@@ -109,7 +187,7 @@ class TraderPositionPanel extends Component {
       Price: this.state.price,
       Sell: false,
       Shares: this.state.newPositionShares,
-      Date: new Date(),
+      Date: new Date().toLocaleString(),
     }
 
     axios
@@ -168,9 +246,12 @@ class TraderPositionPanel extends Component {
     if (prevProps.price != this.props.price) {
       this.setState({ price: this.props.price })
       var pl =
-        (this.props.price - this.state.AveragePrice) * this.state.Shares == NaN
+        (this.props.price - this.state.averagePrice) *
+          this.state.currentPositionShares ==
+        NaN
           ? 0
-          : (this.props.price - this.state.AveragePrice) * this.state.Shares
+          : (this.props.price - this.state.averagePrice) *
+            this.state.currentPositionShares
       this.setState({
         profitLoss: pl.toFixed(2),
       })

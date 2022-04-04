@@ -20,6 +20,7 @@ class CompanyOverview extends Component {
 
   componentDidMount() {
     this.fetchData()
+    console.log(this.props.ticker)
   }
 
   fetchData = () => {
