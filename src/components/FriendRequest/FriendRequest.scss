@@ -1,0 +1,37 @@
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+
+.request {
+   
+    margin : 0.5rem 0;
+
+    &-wrapper {
+        @include display-flex(row, space-between, center)
+    }
+
+    &__text {
+        margin-left: 1rem;
+    }
+
+    &__button-wrapper {
+        @include display-flex(row, space-between, center)
+    }
+
+    &__button {
+        border:none;
+        background-color: transparent;
+    }
+
+    &__img {
+        width:1.7rem;
+        height: 1.7rem;
+
+        &.approve {
+            height: 2.6rem;
+            width: 2.6
+            rem;
+        }
+    }
+
+
+}

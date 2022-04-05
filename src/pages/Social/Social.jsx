@@ -3,7 +3,9 @@ import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import Friends from '../../components/Friends/Friends'
 import FriendRequestList from '../../components/FriendRequestList/FriendRequestList'
+import LeaderboardList from '../../components/LeaderboardList/LeaderboardList'
 import AccountHeader from '../../components/AccountHeader/AccountHeader'
+import TraderLeaderboardList from '../../components/TraderLeaderboardList/TraderLeaderboardList'
 import './Social.scss'
 
 const Social = () => {
@@ -16,8 +18,14 @@ const Social = () => {
       <AccountHeader />
       <div className='social'>
         <div className='social-wrapper'>
-          <Friends />
-          <FriendRequestList />
+          <div className='social__friends-wrapper'>
+            <Friends />
+            <FriendRequestList />
+          </div>
+          <div className='social__leaderboard-wrapper'>
+            <LeaderboardList />
+            <TraderLeaderboardList />
+          </div>
         </div>
       </div>
       <Footer />

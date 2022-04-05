@@ -8,8 +8,9 @@ const Friend = ({ firstName, lastName }) => {
         <img className='friend__img' />
       </div>
       <div className='friend__text-wrapper'>
-        <p className='friend__text'>{firstName}</p>
-        <p className='friend__text'>{lastName}</p>
+        <p className='friend__text'>
+          {firstName} {lastName}
+        </p>
       </div>
     </div>
   )

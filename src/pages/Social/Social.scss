@@ -4,6 +4,10 @@
 .social {
   @include max-width;
 
+  &__header-wrapper {
+      @include max-width;
+  }
+
   &__header {
     text-align: center;
     margin: 2rem;
@@ -12,10 +16,12 @@
     text-align: center;
     text-decoration: underline;
     @include tablet {
-      margin: 3rem 0 0 0;
+      //margin: 3rem 0 0 0;
       font-size: 3rem;
     }
   }
+
+
 
   &-wrapper {
     margin: 2.25rem 0;
@@ -26,4 +32,22 @@
       margin: 2.25rem 0;
     }
   }
+
+    &__friends-wrapper {
+      width: 100%;
+      @include tablet {
+      width: 25%;
+        @include display-flex(column, flex-start, flex-start);
+    }
+    }
+
+
+    &__leaderboard-wrapper {
+    width: 100%;
+    @include tablet {
+    width: 70%;
+  @include display-flex(column, flex-start, flex-start);
+  }
+  }
+  
 }

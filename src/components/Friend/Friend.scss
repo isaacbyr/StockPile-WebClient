@@ -7,7 +7,7 @@
   width: 100%;
 
   &__img-wrapper {
-    width: 10%;
+    width: 25%;
   }
 
   &__img {
@@ -19,7 +19,7 @@
   }
 
   &__text-wrapper {
-    width: 85%;
-    @include display-flex(row, space-between, center);
+    width: 75%;
+    @include display-flex(row, flex-start, center);
   }
 }

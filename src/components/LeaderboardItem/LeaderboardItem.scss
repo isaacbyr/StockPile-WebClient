@@ -1,0 +1,11 @@
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+
+.leaderboardItem {
+    @include display-flex(row, space-around, center);
+
+    &--text {
+        width: 20%;
+        text-align: center;
+    }
+}

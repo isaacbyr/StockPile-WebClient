@@ -12,6 +12,8 @@ import Social from './pages/Social/Social'
 import LoginPage from './pages/LoginPage/LoginPage'
 import { Component } from 'react'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 class App extends Component {
   state = {
@@ -44,6 +46,8 @@ class App extends Component {
   render() {
     return (
       <>
+        <ToastContainer />
+
         <Router>
           <Switch>
             <Route path='/home' component={Home} />

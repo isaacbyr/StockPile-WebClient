@@ -2,6 +2,7 @@ import { Component } from 'react'
 import React from 'react'
 import axios from 'axios'
 import './TraderPositionPanel.scss'
+import { toast } from 'react-toastify'
 
 class TraderPositionPanel extends Component {
   state = {
@@ -155,14 +156,17 @@ class TraderPositionPanel extends Component {
       .post('http://localhost:44317/api/traderealizedPL', realizedPLData)
       .then((response) => {
         console.log(response)
+        toast.success(
+          `Succesfully sold ${this.state.newPositionShares} shares of ${this.state.ticker}!`
+        )
+        // reload account balance
+        this.loadAccountBalance()
+        //load updated positonn
+        this.loadPortfolioStock()
       })
       .catch((err) => {
         console.log(err)
       })
-    // reload account balance
-    this.loadAccountBalance()
-    //load updated positonn
-    this.loadPortfolioStock()
   }
 
   handleBuy = () => {

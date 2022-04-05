@@ -2,6 +2,7 @@ import { Component } from 'react'
 import React from 'react'
 import axios from 'axios'
 import './PositionPanel.scss'
+import { toast } from 'react-toastify'
 
 class PositionPanel extends Component {
   state = {
@@ -92,7 +93,7 @@ class PositionPanel extends Component {
       Price: this.state.price,
       Sell: false,
       Shares: this.state.newPositionShares,
-      Date: new Date(),
+      Date: new Date().toLocaleString(),
     }
     await axios
       .post('http://localhost:44317/api/transaction', transaction)
@@ -152,14 +153,17 @@ class PositionPanel extends Component {
       .post('http://localhost:44317/api/realizedPL', realizedPLData)
       .then((response) => {
         console.log(response)
+        toast.success(
+          `Succesfully sold ${this.state.newPositionShares} shares of ${this.state.ticker}!`
+        )
+        // reload account balance
+        this.loadAccountBalance()
+        //load updated positonn
+        this.loadPortfolioStock()
       })
       .catch((err) => {
         console.log(err)
       })
-    // reload account balance
-    this.loadAccountBalance()
-    //load updated positonn
-    this.loadPortfolioStock()
   }
 
   handleBuy = () => {
@@ -187,7 +191,7 @@ class PositionPanel extends Component {
       Price: this.state.price,
       Sell: false,
       Shares: this.state.newPositionShares,
-      Date: new Date(),
+      Date: new Date().toLocaleString(),
     }
 
     axios
@@ -211,6 +215,9 @@ class PositionPanel extends Component {
         .post('http://localhost:44317/api/portfolio', stock)
         .then((response) => {
           console.log(response)
+          toast.success(
+            `Succesfully bought ${this.state.newPositionShares} shares of ${this.state.ticker}!`
+          )
 
           // reload account balance
           this.loadAccountBalance()
@@ -225,7 +232,9 @@ class PositionPanel extends Component {
         .put('http://localhost:44317/api/portfolio/buy', stock)
         .then((response) => {
           console.log(response)
-
+          toast.success(
+            `Succesfully bought ${this.state.newPositionShares} shares of ${this.state.ticker}!`
+          )
           // reload account balance
           this.loadAccountBalance()
           //load updated positonn

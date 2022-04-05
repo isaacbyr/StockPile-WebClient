@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './FriendRequestList.scss'
+import FriendRequest from '../FriendRequest/FriendRequest'
 import axios from 'axios'
 
 class FriendRequestList extends Component {
@@ -23,7 +24,26 @@ class FriendRequestList extends Component {
       })
   }
   render() {
-    return <div>FriendRequestList</div>
+    return (
+      <section className='requests'>
+        <h2 className='requests__header'>Requests</h2>
+        <div className='requests__list'>
+          {this.state.friendRequests.length > 0 ? (
+            this.state.friendRequests.map((friend) => {
+              return (
+                <FriendRequest
+                  key={friend.id}
+                  firstName={friend.FirstName}
+                  lastName={friend.LastName}
+                />
+              )
+            })
+          ) : (
+            <h2 className='requests__empty'>No Requests :(</h2>
+          )}
+        </div>
+      </section>
+    )
   }
 }
 
