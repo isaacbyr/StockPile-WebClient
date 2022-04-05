@@ -5,6 +5,7 @@
   color: $Primary-Dark-Font;
   @include display-flex(row, center, flex-start);
   width: 100%;
+  margin: 0.5rem 0;
 
   &__img-wrapper {
     width: 20%;

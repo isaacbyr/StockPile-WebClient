@@ -28,9 +28,7 @@ class TraderLeaderboardList extends Component {
   fetchPortfolioData = (friends) => {
     friends.map((friend) => {
       axios
-        .get(
-          `http://localhost:44317/api/traderealizedPL/history/3c0056da-6bfa-40f5-81cf-b0e34b8a198f`
-        )
+        .get(`http://localhost:44317/api/traderealizedPL/history/${friend.Id}`)
         .then((response) => {
           //console.log(response)
           this.convertToLeaderboardDisplayModel(response.data, friend)

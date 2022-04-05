@@ -14,7 +14,9 @@ const DashboardComment = ({ fullname, ticker, postedAt, comment }) => {
             <h4 className='dashComment__username'>
               {fullname} <span className='blue'>-</span>{' '}
               <span className='muted'>
-                <Link className='link'>{ticker}</Link>
+                <Link className='link' to={`/portfoliopro/${ticker}`}>
+                  {ticker}
+                </Link>
               </span>
             </h4>
             <p className='dashComment__date'>{postedAt.substring(0, 10)}</p>

@@ -43,8 +43,8 @@ class FriendTraderPL extends Component {
   }
 
   componentDidMount() {
-    //var id = this.props.id
-    var id = '3c0056da-6bfa-40f5-81cf-b0e34b8a198f'
+    var id = this.props.id
+    //var id = '3c0056da-6bfa-40f5-81cf-b0e34b8a198f'
     axios
       .get(`http://localhost:44317/api/traderealizedpl/history/${id}`)
       .then((response) => {

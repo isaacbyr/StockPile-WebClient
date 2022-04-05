@@ -35,8 +35,8 @@ class UserProfile extends Component {
   }
 
   fetchTraderStocks = () => {
-    //var id = this.props.match.params.id
-    var id = '3c0056da-6bfa-40f5-81cf-b0e34b8a198f'
+    var id = this.props.match.params.id
+    //var id = '3c0056da-6bfa-40f5-81cf-b0e34b8a198f'
     axios
       .get(`http://localhost:44317/api/tradesportfolio/id/${id}`)
       .then((response) => {
@@ -85,8 +85,8 @@ class UserProfile extends Component {
   }
 
   fetchPortfolioStock = () => {
-    //var id = this.props.match.params.id
-    var id = '3c0056da-6bfa-40f5-81cf-b0e34b8a198f'
+    var id = this.props.match.params.id
+    //var id = '3c0056da-6bfa-40f5-81cf-b0e34b8a198f'
     axios
       .get(`http://localhost:44317/api/portfolio/id/${id}`)
       .then((response) => {
