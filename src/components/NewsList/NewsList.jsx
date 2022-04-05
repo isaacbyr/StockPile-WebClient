@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './NewsList.scss'
 import axios from 'axios'
 import NewsItem from '../NewsItem/NewsItem'
+const instance = axios.create()
 
 class NewsList extends Component {
   state = {
@@ -12,7 +13,8 @@ class NewsList extends Component {
   }
 
   fetchData = () => {
-    axios
+    console.log(this.props.ticker)
+    instance
       .get(
         `https://api.polygon.io/v2/reference/news?ticker=${this.props.ticker}&order=desc&limit=15&sort=published_utc&apiKey=g3B6V1o8p6eb1foQLIPYHI46hrnq8Sw1`
       )

@@ -86,7 +86,7 @@ class App extends Component {
                 )
               }}
             />
-            <Route path='/portfoliopro'>
+            <Route exact path='/portfoliopro'>
               {this.state.isAuth ? (
                 <PortfolioProPage />
               ) : (
@@ -109,12 +109,9 @@ class App extends Component {
             <Route path='/traderprodashboard'>
               {this.state.isAuth ? <TraderProPage /> : <Redirect to='/login' />}
             </Route>
-            <Route
-              path='/portfolioprodashboard'
-              component={PortfolioProDashboard}
-            >
+            <Route path='/portfolioprodashboard'>
               {this.state.isAuth ? (
-                <PortfolioProPage />
+                <PortfolioProDashboard />
               ) : (
                 <Redirect to='/login' />
               )}

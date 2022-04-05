@@ -6,8 +6,8 @@ import './LoginPage.scss'
 
 class LoginPage extends Component {
   state = {
-    username: '',
-    password: '',
+    username: 'i.byron@hotmail.com',
+    password: 'Test#12',
   }
   handleChange = (e) => {
     this.setState({
