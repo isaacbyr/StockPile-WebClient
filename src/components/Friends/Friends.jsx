@@ -33,7 +33,8 @@ class Friends extends Component {
             this.state.friends.map((friend) => {
               return (
                 <Friend
-                  key={friend.id}
+                  key={friend.Id}
+                  id={friend.Id}
                   firstName={friend.FirstName}
                   lastName={friend.LastName}
                 />

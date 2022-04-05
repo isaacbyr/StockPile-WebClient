@@ -55,7 +55,7 @@ class CommentsList extends Component {
       .get(`http://localhost:44317/api/comments/${this.props.ticker}`)
       .then((response) => {
         console.log(response.data)
-        this.setState({ comments: response.data })
+        this.setState({ comments: response.data.reverse() })
       })
       .catch((err) => {
         console.log(err)

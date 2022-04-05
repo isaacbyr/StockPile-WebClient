@@ -1,0 +1,79 @@
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+
+.profile{
+    @include max-width;
+
+    &-container {
+        color: $Primary-Dark-Font;
+        @include display-flex(column, space-between, flex-start);
+        width: 100%;
+        padding: 0 16px;
+
+        @include tablet {
+            padding: 0 2.25rem;
+        }
+    }
+
+    &__header-wrapper{
+        border-radius: 4px;
+        padding: 1rem;
+        border: 2px solid $Primary-Dark-Font;
+        box-shadow: 0px 4px 7px rgba(19, 24, 44, 0.2);
+        @include display-flex(row, flex-start, flex-start);
+        width: 100%;
+        height: 160px;
+        margin-bottom: 1rem;
+        @include tablet {
+            margin-bottom: 2.2rem;  
+            width: 60%; 
+        }
+
+        @include desktop{
+            width: 49%;
+        }
+    }
+
+    &__img-wrapper {
+        @include tablet {
+            width: 40%;
+        }
+
+        @include desktop {
+        width: 30%;
+        }
+    }
+
+    &__img {
+        background-color: #e1e1e1;
+        border-radius: 50%;
+        display: block;
+        height: 8rem;
+        width: 8rem;
+
+        @include tablet {
+            margin-left:1rem;
+        }
+    }
+
+    &__header--info-wrapper {
+        height: 100%;
+        width: 50%;
+        @include display-flex(column, space-between, flex-start);
+    }
+
+    &__portfolio-wrapper{
+        width: 100%;
+        @include display-flex(column, flex-start,flex-start);
+        @include tablet {
+        @include display-flex(row, space-around, flex-start);
+        }
+    }
+
+    &__portfolio {
+        width: 100%;
+        @include tablet {
+            width: 49%;
+        }
+    }
+}

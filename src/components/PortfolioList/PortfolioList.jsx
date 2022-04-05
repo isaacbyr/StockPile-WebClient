@@ -4,11 +4,11 @@ import PortfolioItem from '../PortfolioItem/PortfolioItem'
 import axios from 'axios'
 import uuid from 'react-uuid'
 
-const PortfolioList = ({ portfolioStocks }) => {
+const PortfolioList = ({ portfolioStocks, title }) => {
   return (
     <>
       <section className='portfolio'>
-        <h2 className='portfolio__header'>Portfolio</h2>
+        <h2 className='portfolio__header'>{title}</h2>
         <div className='portfolio__table--header'>
           <p className='portfolio__table--item'>Ticker</p>
           <p className='portfolio__table--item'>Shares</p>

@@ -10,6 +10,7 @@ import TraderProDashboard from './pages/TraderProDashboard/TraderProDashboard'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Social from './pages/Social/Social'
 import LoginPage from './pages/LoginPage/LoginPage'
+import UserProfile from './pages/UserProfile/UserProfile'
 import { Component } from 'react'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
@@ -62,6 +63,7 @@ class App extends Component {
               path='/portfolioprodashboard'
               component={PortfolioProDashboard}
             />
+            <Route path='/profile/:id' component={UserProfile} />
             <Route path='/dashboard' component={Dashboard} />
             <Route path='/social' component={Social} />
             <Route path='/login'>

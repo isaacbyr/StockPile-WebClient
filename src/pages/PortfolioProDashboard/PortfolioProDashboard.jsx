@@ -118,7 +118,10 @@ class PortfolioProDashboard extends Component {
             <div className='portfoliodashboard-container middle'>
               <div className='portfoliodashboard__tablet-first'>
                 {this.state.portfolioStocks.length > 0 ? (
-                  <PortfolioList portfolioStocks={this.state.portfolioStocks} />
+                  <PortfolioList
+                    portfolioStocks={this.state.portfolioStocks}
+                    title={'Portfolio'}
+                  />
                 ) : (
                   <h2>Loading</h2>
                 )}

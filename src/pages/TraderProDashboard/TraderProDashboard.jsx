@@ -112,7 +112,10 @@ class TraderProDashboard extends Component {
           <div className='traderdashboard-wrapper middle'>
             <div className='traderdashboard-container middle'>
               <div className='traderdashboard__tablet-first'>
-                <PortfolioList portfolioStocks={this.state.portfolioStocks} />
+                <PortfolioList
+                  portfolioStocks={this.state.portfolioStocks}
+                  title={'Portfolio'}
+                />
               </div>
               <div className='portfoliodashboard__tablet-second'>
                 <Watchlist />
