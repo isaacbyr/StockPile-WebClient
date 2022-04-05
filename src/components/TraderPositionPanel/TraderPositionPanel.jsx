@@ -86,7 +86,6 @@ class TraderPositionPanel extends Component {
     } else {
       this.handleSell()
     }
-    this.state.newPositionShares = 0
   }
 
   handleSell = async () => {
@@ -168,6 +167,7 @@ class TraderPositionPanel extends Component {
       .catch((err) => {
         console.log(err)
       })
+    this.state.newPositionShares = 0
   }
 
   handleBuy = () => {
@@ -242,6 +242,7 @@ class TraderPositionPanel extends Component {
     }
 
     this.props.updateId += 1
+    this.state.newPositionShares = 0
   }
 
   componentDidUpdate(prevProps) {
