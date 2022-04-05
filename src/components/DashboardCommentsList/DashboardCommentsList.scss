@@ -12,10 +12,23 @@
     width: 49%;
   }
 
+  &__header-wrapper {
+
+    @include tablet {
+      @include display-flex(row, space-between, center);
+      border-bottom: 1px solid $Primary-Dark-Font;
+    }
+  }
+
   &__header {
     color: $Primary-Dark-Font;
     text-align: center;
     border-bottom: 1px solid $Primary-Dark-Font;
+    @include tablet {
+      width: 80%;
+      border: none;
+      margin:  0.5rem 0 0 4rem;
+    }
   }
 
   &__form {
@@ -58,7 +71,7 @@
     @include display-flex(row, center, center);
 
     @include desktop {
-      margin-right: 1rem;
+      margin: 1rem 1rem 0 0;
     }
   }
 
@@ -80,7 +93,7 @@
   }
 
   &__list {
-    height: 400px;
+    height: 443px;
     overflow: hidden;
     overflow-y: scroll;
   }

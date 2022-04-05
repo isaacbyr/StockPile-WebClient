@@ -7,8 +7,8 @@ const LeaderboardItem = ({ name, winningPerc, profitLoss }) => {
     <>
       <div className='leaderboardItem'>
         <p className='leaderboardItem--text'>{name}</p>
-        <p className='leaderboardItem--text'>{winningPerc}</p>
-        <p className='leaderboardItem--text'>{profitLoss}</p>
+        <p className='leaderboardItem--text'>{winningPerc}%</p>
+        <p className='leaderboardItem--text'>${profitLoss}</p>
       </div>
     </>
   )

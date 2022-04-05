@@ -6,6 +6,7 @@
 
   &__header-wrapper {
       @include max-width;
+      @include display-flex(row, space-between, center)
   }
 
   &__header {

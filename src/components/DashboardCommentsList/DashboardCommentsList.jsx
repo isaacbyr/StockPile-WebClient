@@ -88,24 +88,8 @@ class DashboardCommentsList extends Component {
     return (
       <>
         <div className='dashCommentsList'>
-          <h2 className='dashCommentsList__header'>Comments</h2>
-          <div className='dashCommentsList__form-wrapper'>
-            <form
-              className='dashCommentsList__form'
-              onSubmit={this.handleSubmit}
-            >
-              <input
-                className='dashCommentsList__form--input'
-                name='comment'
-                type='text'
-                placeholder='Enter Comment ...'
-                value={this.state.comment}
-                onChange={this.handleChange}
-              />
-              <button className='dashCommentsList__form--button' type='submit'>
-                Post
-              </button>
-            </form>
+          <div className='dashCommentsList__header-wrapper'>
+            <h2 className='dashCommentsList__header'>Comments</h2>
             <div className='dashCommentsList__trending-wrapper'>
               <Link to={`/portfoliopro/${this.state.trendingStock}`}>
                 <p className='dashCommentsList__trending--text'>

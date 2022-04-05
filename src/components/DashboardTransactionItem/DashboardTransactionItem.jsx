@@ -1,5 +1,6 @@
 import React from 'react'
 import './DashboardTransactionItem.scss'
+import { Link } from 'react-router-dom'
 
 const DashboardTransactionItem = ({
   fullName,
@@ -23,11 +24,18 @@ const DashboardTransactionItem = ({
           </div>
           {buy == 1 ? (
             <p className='dashTransactionItem__text'>
-              Bought {shares} shares of {ticker}
+              Bought {shares} shares of{' '}
+              <Link
+                className='dashTransactionItem__link'
+                to={`/portfoliopro/${ticker}`}
+              >
+                {ticker}
+              </Link>
             </p>
           ) : (
             <p className='dashTransactionItem__text'>
-              Sold {shares} shares of {ticker}
+              Sold {shares} shares of{' '}
+              <Link to={`/portfoliopro/${ticker}`}>{ticker}</Link>
             </p>
           )}
         </div>

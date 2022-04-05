@@ -53,7 +53,7 @@
 
     @include desktop {
       @include display-flex(row, space-between, center);
-      margin-left: 2rem;
+      margin-left: 1rem;
     }
   }
 
@@ -70,7 +70,7 @@
 
     @include desktop {
       @include display-flex(row, space-around, center);
-      margin-right: 6rem;
+      margin-right: 2rem;
     }
   }
 

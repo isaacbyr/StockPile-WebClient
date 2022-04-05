@@ -83,15 +83,16 @@ class PositionPanel extends Component {
     } else {
       this.handleSell()
     }
+    this.state.newPositionShares = 0
   }
 
   handleSell = async () => {
     //update transaction table
     var transaction = {
       Ticker: this.state.ticker,
-      Buy: true,
+      Buy: false,
       Price: this.state.price,
-      Sell: false,
+      Sell: true,
       Shares: this.state.newPositionShares,
       Date: new Date().toLocaleString(),
     }
