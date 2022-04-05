@@ -40,6 +40,10 @@ class App extends Component {
       .post('http://localhost:44317/token', params)
       .then((response) => {
         var access_token = response.data.access_token
+        axios.defaults.headers.common[
+          'Authorization'
+        ] = `Bearer ${access_token}`
+
         const config = {
           headers: {
             Authorization: `Bearer ${access_token}`,
@@ -69,16 +73,19 @@ class App extends Component {
 
         <Router>
           <Switch>
-            <Route path='/' exact component={Home} />
+            <Route path='/home' exact component={Home} />
             <Route path='/features' component={FeaturesPage} />
             <Route path='/pricing' component={PricingPage} />
-            <Route path='/portfoliopro/:id'>
-              {this.state.isAuth ? (
-                <PortfolioProPage />
-              ) : (
-                <Redirect to='/login' />
-              )}
-            </Route>
+            <Route
+              path='/portfoliopro/:id'
+              render={(routerProps) => {
+                return this.state.isAuth ? (
+                  <PortfolioProPage {...routerProps} />
+                ) : (
+                  <Redirect to='/login' />
+                )
+              }}
+            />
             <Route path='/portfoliopro'>
               {this.state.isAuth ? (
                 <PortfolioProPage />
@@ -86,26 +93,43 @@ class App extends Component {
                 <Redirect to='/login' />
               )}
             </Route>
-            <Route path='/traderpro/:id'>
-              {this.state.isAuth ? <TraderProPage /> : <Redirect to='/login' />}
-            </Route>
+            <Route
+              path='/traderpro/:id'
+              render={(routerProps) => {
+                return this.state.isAuth ? (
+                  <TraderProPage {...routerProps} />
+                ) : (
+                  <Redirect to='/login' />
+                )
+              }}
+            />
             <Route path='/traderpro' component={TraderProPage}>
               {this.state.isAuth ? <TraderProPage /> : <Redirect to='/login' />}
             </Route>
             <Route path='/traderprodashboard'>
               {this.state.isAuth ? <TraderProPage /> : <Redirect to='/login' />}
             </Route>
-            <Route path='/portfolioprodashboard'>
+            <Route
+              path='/portfolioprodashboard'
+              component={PortfolioProDashboard}
+            >
               {this.state.isAuth ? (
                 <PortfolioProPage />
               ) : (
                 <Redirect to='/login' />
               )}
             </Route>
-            <Route path='/profile/:id'>
-              {this.state.isAuth ? <UserProfile /> : <Redirect to='/login' />}
-            </Route>
-            <Route path='/dashboard'>
+            <Route
+              path='/profile/:id'
+              render={(routerProps) => {
+                return this.state.isAuth ? (
+                  <UserProfile {...routerProps} />
+                ) : (
+                  <Redirect to='/login' />
+                )
+              }}
+            />
+            <Route path='/dashboard' component={Dashboard}>
               {this.state.isAuth ? <Dashboard /> : <Redirect to='/login' />}
             </Route>
             <Route path='/social'>
