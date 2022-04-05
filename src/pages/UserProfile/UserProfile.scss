@@ -72,6 +72,27 @@
 
     &__portfolio {
         width: 100%;
+        margin-bottom: 1rem;
+        @include tablet {
+            width: 49%;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__pl-wrapper {
+        margin-bottom: 1rem;
+        width: 100%;
+        @include display-flex(column, flex-start, flex-start);
+        
+        @include tablet {
+            @include display-flex(row, space-around, flex-start);
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__pl {
+        width: 100%;
+        
         @include tablet {
             width: 49%;
         }

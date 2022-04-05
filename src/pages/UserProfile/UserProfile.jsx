@@ -5,6 +5,8 @@ import './UserProfile.scss'
 import AccountHeader from '../../components/AccountHeader/AccountHeader'
 import axios from 'axios'
 import PortfolioList from '../../components/PortfolioList/PortfolioList'
+import FriendTraderPL from '../../components/FriendTraderPL/FriendTraderPL'
+import FriendPortfolioPL from '../../components/FriendPortfolioPL/FriendPortfolioPL'
 
 class UserProfile extends Component {
   state = {
@@ -185,9 +187,16 @@ class UserProfile extends Component {
                 )}
               </div>
             </div>
+            <div className='profile__pl-wrapper'>
+              <div className='profile__pl'>
+                <FriendPortfolioPL id={this.props.match.params.id} />
+              </div>
+              <div className='profile__pl'>
+                <FriendTraderPL id={this.props.match.params.id} />
+              </div>
+            </div>
           </div>
         </section>
-
         <Footer />
       </>
     )
