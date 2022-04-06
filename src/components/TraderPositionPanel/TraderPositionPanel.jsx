@@ -113,21 +113,21 @@ class TraderPositionPanel extends Component {
       Shares: this.state.newPositionShares,
     }
 
-    var realizedPL = 0
+    var realizedPL =
+      (this.state.price - this.state.averagePrice) *
+      this.state.newPositionShares
     // if shares now equals current postion shares update and delete
     if (this.state.currentPositionShares == this.state.newPositionShares) {
       await axios
         .put('http://localhost:44317/api/tradesportfolio/delete', stock)
         .then((response) => {
           console.log(response)
-          realizedPL = response.data
         })
     } else {
       await axios
         .put('http://localhost:44317/api/tradesportfolio/sell', stock)
         .then((response) => {
           console.log(response)
-          realizedPL = response.data
         })
     }
     // update user account table, account balance and realizedgains
