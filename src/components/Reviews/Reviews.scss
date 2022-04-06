@@ -27,14 +27,14 @@
     box-shadow: 2px 4px 7px rgba(19, 24, 44, 0.2);
     border-radius: 4px;
     margin: 0.8rem;
-
+    border: 2px solid $Primary-Dark-Font;
     @include tablet {
       width: 30%;
     }
   }
 
   &__item--header {
-    padding: 0.5rem;
+    padding: 0.7rem;
     @include display-flex(row, flex-start, center);
   }
 

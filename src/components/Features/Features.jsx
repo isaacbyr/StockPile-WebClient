@@ -60,7 +60,8 @@ const Features = () => {
               <p className='feature__description--text'>
                 Given a starting amount of $100,000, PortfolioPro allows you to
                 buy and sell any stock in the stock market. Get real time
-                charting and company data on over 1000 different stocks
+                charting and company data on over 1000 different stocks, and
+                become the ultimate investor!
               </p>
             </div>
             <button className='feature__button'>View Pricing</button>
@@ -95,15 +96,17 @@ const Features = () => {
                 <div className='feature__subheader-wrapper'>
                   <img src={Past} className='feature__icon' />
                   <p className='feature__subheader--text'>
-                    Practice on past days
+                    Practice on past days data
                   </p>
                 </div>
               </div>
             </div>
             <div className='feature__description-wrapper'>
               <p className='feature__description--text'>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Expedita rem accusantium repellendus voluptatum ea illo dolorem
+                Starting with $100,000, TradePro allows you to day trade and
+                manage a short-term porfolio. Using live data, you can get the
+                lastest charts and prices for any stock on the US stock
+                exchange. Become the ultimate trader today!
               </p>
             </div>
             <button className='feature__button'>View Pricing</button>
@@ -147,8 +150,10 @@ const Features = () => {
             </div>
             <div className='feature__description-wrapper'>
               <p className='feature__description--text'>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Expedita rem accusantium repellendus voluptatum ea illo dolorem
+                AlgoPro is our most advanced feature. Using custom algorithms
+                you can back test trading strategies like moving average
+                crossovers. Find a startegy thats profitable? Link our app to
+                your IB Trader Workstation and we will do the trading for you!
               </p>
             </div>
             <button className='feature__button'>View Pricing</button>
