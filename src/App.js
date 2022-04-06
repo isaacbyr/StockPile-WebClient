@@ -106,9 +106,17 @@ class App extends Component {
             <Route path='/traderpro' component={TraderProPage}>
               {this.state.isAuth ? <TraderProPage /> : <Redirect to='/login' />}
             </Route>
-            <Route path='/traderprodashboard'>
-              {this.state.isAuth ? <TraderProPage /> : <Redirect to='/login' />}
-            </Route>
+            <Route
+              path='/traderprodashboard'
+              render={(routerProps) => {
+                return this.state.isAuth ? (
+                  <TraderProDashboard {...routerProps} />
+                ) : (
+                  <Redirect to='/login' />
+                )
+              }}
+            />
+
             <Route path='/portfolioprodashboard'>
               {this.state.isAuth ? (
                 <PortfolioProDashboard />

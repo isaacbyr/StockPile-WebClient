@@ -101,13 +101,14 @@
     @include display-flex(row, flex-start, center);
 
     @include tablet {
-      margin: 0 2rem;
+      margin: 0 0rem;
     }
   }
 
   &__text {
     @include tablet {
       font-size: 1rem;
+      margin-left: .5rem;
     }
   }
 
@@ -126,7 +127,13 @@
     }
 
     &:hover {
-      //background-color: #1b263b;
+      padding: 6px 16px;
     }
+  }
+
+  &__img {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-bottom: .3rem;
   }
 }

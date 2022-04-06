@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './HomeComponent.scss'
+import Bull from '../../assets/Icons/bull_icon.png'
+import Chart from '../../assets/Icons/chart_icon.png'
+import Dollar from '../../assets/Icons/dollar_blue_icon.png'
 
 const HomeComponent = () => {
   return (
@@ -33,18 +36,18 @@ const HomeComponent = () => {
           </div>
           <div className='home-banner__subheader--tablet-wrapper'>
             <div className='home-banner__subheader-wrapper'>
-              {/* <img src={''} /> */}
+              <img className='home-banner__img' src={Bull} />
               <p className='home-banner__text'>
-                Get the tool you need to beat the market
+                Get the tools you need to beat the market
               </p>
             </div>
             <div className='home-banner__subheader-wrapper'>
-              {/* <img src={''} /> */}
+              <img className='home-banner__img' src={Dollar} />
               <p className='home-banner__text'>Trade like the pros</p>
             </div>
             <div className='home-banner__subheader-wrapper'>
-              {/* <img src={''} /> */}
-              <p className='home-banner__text'>Trade and Track Any Stock</p>
+              <img className='home-banner__img' src={Chart} />
+              <p className='home-banner__text'>Trade and track any stock</p>
             </div>
           </div>
           <button className='home-banner__button'>Sign Up Now!</button>
